@@ -1,0 +1,69 @@
+% ------ headers globales -------------
+\documentclass[11pt, a4paper, twoside]{article}
+\usepackage{header}
+\usepackage{config}
+% -------------------------------------
+\begin{document}
+
+% -- Carátula --
+\clearpage{\pagestyle{empty}\input{caratula}}
+
+%-- Índice --
+\clearpage{%
+  \pagestyle{empty}\tableofcontents%
+  \vspace{3cm}%
+  \cleardoublepage%
+}
+%-- A partir de aquí, pongo el contador de páginas en 1 --
+\setcounter{page}{1}
+
+%--
+%-- Introducción
+%--
+\index{Introducción}
+\section{Introducción}
+
+\fixme
+
+\newpage
+%--
+%-- Escenarios Hipotéticos
+%--
+\index{Escenarios Hipotéticos}
+\section{Escenarios Hipotéticos}
+
+\fixme
+
+\newpage
+
+%--
+%-- Desarrollo
+%--
+\index{Desarrollo}
+\section{Desarrollo}
+
+\fixme
+
+\newpage
+
+  %--
+  %-- Diagrama de Contexto
+  %--
+  \index{Diagrama de Contexto}
+  \subsection{Diagrama de Contexto}
+
+  \fixme
+
+  \newpage
+
+  %--
+  %-- Modelo de Objetivos
+  %--
+  \index{Modelo de Objetivos}
+  \subsection{Modelo de Objetivos}
+
+  \fixme
+
+  \newpage
+
+\end{document}
