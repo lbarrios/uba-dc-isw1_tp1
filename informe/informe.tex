@@ -14,14 +14,130 @@
   \vspace{3cm}%
   \cleardoublepage%
 }
+
 %-- A partir de aquí, pongo el contador de páginas en 1 --
 \setcounter{page}{1}
 
 %--
 %-- Introducción
 %--
-\index{Introducción}
 \section{Introducción}
+
+  %--
+  %-- Introducción: Objetivo del Trabajo Práctico
+  %--
+  \subsection{Objetivos del Trabajo Práctico}
+
+Mediante el presente trabajo, se nos pone frente a la tarea de realizar un
+análisis de requerimientos y una \textbf{propuesta de un sistema de software}
+para la cadena de supermercados MES\%, a pedido del CEO de la compañía. La
+propuesta debe ser planteada de tal forma que esta transmita claramente la
+manera en que será cumplido cierto conjunto de objetivos, junto con los
+mecanismos mediante los cuales el software se relacionará con los sistemas ya
+existentes, y su beneficio directo y potencial.
+
+A continuación, se transcribe el texto original que describe el contexto dentro
+del cual se implementará el sistema, y posteriormente a este se incluyen las
+presunciones y aclaraciones adicionales, extraídas a partir de nuestra
+interpretación del susodicho, o bien discutidas con el CEO\footnote{El tutor de
+este trabajo práctico, en este caso, cumple este papel.} de la compañía.
+
+  %--
+  %-- Introducción: Contexto
+  %--
+  \subsection{Contexto}
+
+  En los últimos años, la cadena de supermercados Mes\% viene creciendo
+rápidamente y esto se debe, principalmente, a que tienen los mejores precios de
+toda la ciudad.
+
+  Sin embargo, según los estudios entregados por una consultora privada, en los
+últimos seis meses las ventas cayeron casi un 15\%. La razón de esta baja tiene
+dos motivos: Por un lado, los locales tienen cada vez una mayor cantidad de
+clientes, generando molestias debido al excesivo tiempo de espera que se produce
+en las colas de las cajas. Por otro lado, en muchas ocasiones ocurre que las
+ventas no pueden efectuarse dada la falta de mercadería disponible en las
+góndolas.
+
+El CEO de la compañía ha decidido tomar cartas en el asunto e impulsar el
+desarrollo de un Software que estimule a sus clientes a efectuar sus compras
+desde cualquier dispositivo con internet. La idea central es que las compras
+puedan realizarse desde la web \textit{www.mesporciento.com} (se pretende que el
+diseño de interfaz de usuario sea \textbf{responsive} de manera tal que sea
+usable tanto en un navegador estándar como en los dispositivos móviles). Para
+esto, los usuarios deberían registrarse (una única vez). Luego, a partir de ese
+momento, podrán efectuar pedidos acordando con nosotros la fecha de entrega. Las
+entregas podrán realizarse a cualquier punto de la ciudad. Para esto, Mes\%
+contaráa con camionetas que se encargarán de distribuir los pedidos una vez que
+fueron cerrados.
+
+Actualmente, Mes\% cuenta con cinco locales y un depósito. El CEO plantea como
+estrategia de crecimiento de la compañía el aumento del tamaño y/o de la
+cantidad de depósitos y no así de la cantidad de locales, ya que la mayor
+cantidad de ventas deberían provenir de las ventas online.
+
+Ustedes han sido seleccionados para llevar a cabo el desarrollo del sistema. En
+esta primera fase, su tarea es obtener y documentar los requerimientos, que
+serán provistos por el CEO de la cadena. En algunas reuniones preliminares, nos
+transmitió algunas inquietudes y opiniones que se fueron relevando a clientes,
+responsables de stock, encargado de entregas y encargado de armado de pedidos:
+
+\begin{itemize}
+
+\item ``No podemos tener problemas de stock cuando un pedido se realiza de forma
+online.''
+
+\item ``Aprovechando la construcción del software deberíamos, desde cualquier
+local, solicitar la reposición de stock.''
+
+\item ``Si bien, asumimos que nuestros clientes al momento de la fecha de
+entrega van a estar en los domicilios, ¿qué va a pasar cuando no estén? En
+muchos casos puede ser que sea por olvido, pero en muchos otros no. Tenemos que
+poder actuar ante esta situación.''
+
+\item ``Un cliente no puede realizar un pedido si aún tiene un pedido no
+entregado. Sin embargo, si el pedido está aún pendiente de preparación, debería
+poder modificarlo.''
+
+\item ``Los pedidos sólo serán entregados si están pagos. El pago puede hacerse
+al momento de hacer el pedido o contra entrega`.''
+
+\item ``Como dueños del Sistema, queremos contar con información que sea
+interesante como para tomar mejores decisiones a futuro.''
+
+\end{itemize}
+
+Se espera, además, que el sistema escale y sea seguro.
+
+  %--
+  %-- Introducción: Presunciones / Aclaraciones adicionales
+  %--
+  \subsection{Presunciones / Aclaraciones adicionales}
+  
+  \begin{itemize}
+
+  \item En caso de que la cadena de supermercados decida inaugurar más
+depósitos, tanto la reposición de stock como los traslados entre estos estarán a
+cargo de la compañía. A efectos prácticos, \textbf{se permite, y se asumirá, que
+existe un solo depósito}, cuyo stock es la sumatoria del stock de todos los
+depósitos, y que todos los pedidos serán entregados desde el mismo.
+
+  \item Una empresa de logística se encargará de todos los traslados que se
+originen en un depósito. El sistema deberá contar con una \textbf{interfaz
+adecuada que actúe como canal de comunicación bilateral} con dicha empresa. Este
+canal deberá ser apto tanto para \textbf{realizar consultas y pedidos de forma
+online}, a través de solicitudes directas al servidor de la compañía de
+logística, como para \textbf{informar o ingresar datos de forma indirecta}, a
+través de la impresión o la carga manual de: remitos de traslado, comprobantes
+de pago, facturas, hojas de ruta, etcétera.
+
+  \item El sistema deberá llevar un \textbf{control activo del stock del
+depósito}.
+
+
+  \end{itemize}
+
+\newpage
 
 \fixme
 
@@ -29,17 +145,14 @@
 %--
 %-- Escenarios Hipotéticos
 %--
-\index{Escenarios Hipotéticos}
 \section{Escenarios Hipotéticos}
 
 \fixme
 
 \newpage
-
 %--
 %-- Desarrollo
 %--
-\index{Desarrollo}
 \section{Desarrollo}
 
 \fixme
@@ -49,7 +162,7 @@
   %--
   %-- Diagrama de Contexto
   %--
-  \index{Diagrama de Contexto}
+
   \subsection{Diagrama de Contexto}
 
   \fixme
@@ -59,7 +172,7 @@
   %--
   %-- Modelo de Objetivos
   %--
-  \index{Modelo de Objetivos}
+
   \subsection{Modelo de Objetivos}
 
   \fixme
