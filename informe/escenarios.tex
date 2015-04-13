@@ -4,16 +4,178 @@
 \newpage
 \subsection{Escenarios representativos de uso}
   
-  %-- Escenario 1
-  \subsubsection{Registro, compra y pago online}
+  % \subsubsection{Registro, compra y pago online}
 
-  Un usuario entra por primera vez al sitio, y se registra. Luego inicia sesión y el sistema le da la posibilidad de hacer una compra online. Una vez seleccionado los productos deseados y terminado de hacer el pedido, el usuario debe elegir la fecha de entrega. Para ello el sistema hace una consulta a la Empresa de Logística, para ver cuándo puede hacer la entrega. 
+  % Un usuario entra por primera vez al sitio, y se registra. Luego inicia sesión y el sistema le da la posibilidad de hacer una compra online. Una vez seleccionado los productos deseados y terminado de hacer el pedido, el usuario debe elegir la fecha de entrega. Para ello el sistema hace una consulta a la Empresa de Logística, para ver cuándo puede hacer la entrega. 
   
-  Una vez elegida la fecha, se le da la opción de pago. De acuerdo al rating del usuario, puede ser contra entrega o también online. Si el usuario decide utilizar la segunda, entonces el sitio le muestra la pantalla de pago del Agente de Cobro correspondiente. Si el pago es satisfactorio, el Agente de Cobro se lo confirma al sitio, y este le solicita al Depósito que lo prepare. Una vez cerrado el pedido, el Depósito le inforuo”. Logística pueda lo busca para entregárselo al cliente. 
+  % Una vez elegida la fecha, se le da la opción de pago. De acuerdo al rating del usuario, puede ser contra entrega o también online. Si el usuario decide utilizar la segunda, entonces el sitio le muestra la pantalla de pago del Agente de Cobro correspondiente. Si el pago es satisfactorio, el Agente de Cobro se lo confirma al sitio, y este le solicita al Depósito que lo prepare. Una vez cerrado el pedido, el Depósito le inforuo”. Logística pueda lo busca para entregárselo al cliente. 
   
-  Si el usuario lo recibe satisfactoriamente, entonces Logística lo informa a Depósito, quién actualiza otra vez el estado del pedido en el sitio a “Entregado”. 
+  % Si el usuario lo recibe satisfactoriamente, entonces Logística lo informa a Depósito, quién actualiza otra vez el estado del pedido en el sitio a “Entregado”. 
 
-  %-- Escenario 2
-  \subsubsection{Nombre del escenario}
+%-- Escenario 1
+\subsubsection{Registro online}
 
-  \fixme
+\textbf{\emph{Alice}} no es cliente habitual de la cadena mesporciento, ya que
+le queda lejos de su casa como para ir caminando. Tras enterarse de la nueva
+posibilidad de comprar online, se conecta al sitio web www.mesporciento.com a
+través de su computadora, y registra un nuevo usuario
+``\texttt{alice\_gatita93}'', ingresando para ello sus \textbf{datos
+personales}, tales como nombre, domicilio, teléfono, email, y una
+\textbf{contraseña segura}. El sitio verifica que los datos ingresados son
+correctos, y luego le envía un mail de confirmación con un vínculo en el que
+\textbf{\emph{Alice}} presiona para validar su cuenta. \textbf{\emph{Alice}}
+entonces reingresa al sitio, utilizando ahora su nuevo usuario.
+
+%-- Escenario 2
+\subsubsection{Registro presencial con sistema de reputación}
+
+\textbf{\emph{Bob}} es cliente habitual de la cadena mesporciento, y aprovecha
+una de sus rutinarias compras para registrar su usuario en su sitio web. Para
+ello, se encargó previamente de juntar la documentación requerida para el
+registro: el documento de identidad, y una acreditación de domicilio, en
+particular lleva la última factura de luz. Luego de las compras, le pregunta a
+la cajera en dónde debe registrarse, y le indican que se dirija a la sección de
+informes.
+
+En la sección de informes no hay nadie, por lo que \textbf{\emph{Bob}} debe
+esperar unos 10 minutos hasta que aparezca la encargada. Esta le pide la
+documentación, y la verifica mientras le entrega a \textbf{\emph{Bob}} un
+cuestionario de datos personales para que lo complete. Luego,
+\textbf{\emph{Bob}} le entrega el cuestionario, y la empleada verifica que los
+datos del cuestionario y la documentación coincidan. Entonces, le saca
+fotocopias a la documentación y al cuestionario. Le entrega la fotocopia del
+cuestionario a \textbf{\emph{Bob}}, mientras que la fotocopia de la
+documentación es archivada junto con el cuestionario en un sobre de papel
+madera, que a su vez es apilado junto a muchos otros sobres de aspecto similar.
+Finalmente, le informa a \textbf{\emph{Bob}} que se le avisará por mail en
+cuanto el registro se encuentre completo, y allí mismo le brindarán las
+instrucciones para acceder al sitio.
+
+Luego de dos semanas, \textbf{\emph{Bob}} recibe un email de parte del remitente
+felicitaciones@mesporciento.com, y asunto <<Bienvenido a una nueva forma de
+comprar>>, en el que se le informa que ya se encuentra habilitado su usuario
+``\texttt{marley\_b420}''
+
+%-- Escenario 3
+\subsubsection{Pago online}
+
+\textbf{\emph{Charlie}} se conecta a la web de mesporciento desde su tablet, con
+su usuario ``\texttt{je\_suis\_moi}'', dispuesto a iniciar su compra de
+productos semanal, de forma online. Para ello, revisa el listado de productos, y
+agrega a su \textbf{carrito virtual} los que necesita. Una vez que el carrito
+contiene todos los productos que desea, presiona el botón \texttt{``FINALIZAR
+COMPRA''}, el cual lo dirige a la pantalla de cierre de pedido. En esta
+pantalla, se le informa del costo total de la compra, y se le ofrecen opciones
+de fechas y horarios posibles de entrega, de entre las que
+\textbf{\emph{Charlie}} elige el Miércoles de la semana que viene, por la
+mañana, ya que sabe que en ese horario va a estar en su casa.
+
+Luego, en la siguiente pantalla, elige la opción de Pago Online, y el sitio le
+solicita que elija un método de pago de entre las distintas opciones
+disponibles. Ya que \textbf{\emph{Charlie}} confía mucho en el sistema
+\texttt{PayPal}, lo elige, tras lo cual se abre una ventana externa que redirige
+al sitio de PayPal, en que tras ingresar su usuario y su clave se le solicita
+confirmar el valor de la compra. Luego de que esta ventana se cierra, el sitio
+le muestra una animación muy jocosa de un tigre mirando un reloj, mientras
+debajo se puede leer la frase \texttt{``Por favor, espere, estamos validando el
+pago...''}. Tras unos segundos, el tigre comienza a bailar, el mensaje se
+desvanece, y lo reemplaza un nuevo mensaje \texttt{``Su pago se encuentra
+confirmado. Le hemos enviado un mail con la información de su pedido. Gracias
+por confiar en nosotros. En unos instantes, será redirigido a la página
+principal.''}.
+
+%-- Escenario 4
+\subsubsection{Pago contrareembolso}
+
+\textbf{\emph{Dave}} tiene un problema de adicción al casino. Normalmente, con
+la ayuda de sus amigos y familiares, lo controla sin mayores inconvenientes.
+Pero hace 1 semana tuvo un viaje laboral, y en el último día, libre para todos
+los empleados, no resistió la tentación de jugar una o dos tiradas de ruleta,
+con el efectivo que llevaba encima. Tuvo la mala suerte de que le fue
+relativamente bien, ganó ambas jugadas lo que le hizo cuadruplicar su efectivo.
+Envalentonado por su repentino y misterioso golpe de suerte, se dirigió a la
+casilla de venta de fichas, y gastó todo el dinero de su cuenta bancaria en
+fichas. También compró fichas con su tarjeta de crédito, en un pago, hasta
+alcanzar el límite. Compró en total 450 fichas, y volvió a dirigirse a la
+ruleta. Su plan inicial era realizar una paciente Martingala, pero un rayo
+cósmico atravesó su mente momentos antes de colocar la apuesta, y supo entonces
+que debía elegir el número 7. Claro, porque este era el séptimo día del viaje
+laboral, y había tenido mucha suerte, por lo que el siete era un buen número.
+Claramente, \textbf{\emph{Dave}} perdió todo su dinero, y no solo eso, sino que
+se endeudó gravemente, saturando el límite de su tarjeta de crédito.
+
+Al volver a su casa, le cuenta lo sucedido a su tío, pidiéndole que no le cuente
+a nadie, y este le presta dinero ``hasta que logre salir de la situación''. Como
+no tiene tiempo de ir al supermercado, ya que debe hacer horas extras para pagar
+sus deudas, aprovecha el sistema de compras online de mesporciento para encargar
+las provisiones de la semana durante la noche. Se autentica en el sitio con su
+usuario, ``\texttt{lucky\_guy\_00}'', elige los productos indispensables para el
+resto del mes, y pacta una fecha de entrega para el día siguiente. Al momento de
+elegir la opción de pago, advierte que no puede realizar un pago online, ya que
+la tarjeta se encuentra saturada, por lo que opta por elegir la opción de pago
+contrareembolso.
+
+Al otro día, temprano, suena el timbre, y recibe el pedido, el cual paga en
+efectivo, y les deja una modesta propina a los muchachos para que carguen las
+bolsas hasta la cocina de su casa.
+
+%-- Escenario 5
+\subsubsection{Entrega correcta}
+
+El Martes 13 de Abril \textbf{\emph{Erin}} realizó un pedido de torta de
+cumpleaños, cotillón y un regalo grandioso para ser entregado el Martes
+siguiente, en conmemoración del 50-cumpleaños de su tía. Aprovecha la
+posibilidad para elegir que su pedido sea entregado en la casa de su tía, y no
+en su domicilio. Para ello, intenta modificar el domicilio de su usuario
+``\texttt{ireland\_green}'', pero el sistema no se lo permite. Entonces, como
+\textbf{\emph{Erin}} es muy inteligente, crea un nuevo usuario
+``\texttt{tia\_50}'', especial para esta ocasión, el cual completa con los datos
+de su tía. Por comodidad, además, lo paga en línea, con una tarjeta de crédito
+(la suya, no la de su tía), ya que por costumbre familiar está prohibido hablar
+de dinero durante el cumpleaños de una tía, y quiere evitar malos momentos
+durante el episodio festivo.
+
+Llegado el día, están todos festejando, ya con algunas copitas encima, cuando la
+tía grita a \textbf{\emph{Erin}}: <<¿y la torta? ¿y los juguetitos que me habías
+prometido?>>. En ese instante, justamente, suena el timbre, y resultan ser los
+empleados de mesporciento. \textbf{\emph{Erin}} les abre la puerta y les indica
+dónde dejar la mercadería. Les dice que no puede darles propina por una
+costumbre familiar, tras lo cual los empleados regresan a su camión,
+apesumbrados.
+
+%-- Escenario 6
+\subsubsection{Ausente durante entrega}
+
+\textbf{\emph{Frank}} es una persona muy olvidadiza. Tanto es así, que durante
+la mañana de hoy, fue hasta el banco a cobrar un cheque, para terminar dándose
+cuenta que no lo había llevado. No fue sino hasta la mañana del día siguiente,
+al leer su email, que se enteró que, durante su ausencia en el banco, había
+recibido una visita del supermercado Mes\%, al cual había justamente encargado
+una compra el día anterior. Utilizando un vínculo provisto dentro del mismo
+mensaje, programó la visita para ese mismo día, al mediodía, y luego se ató un
+piolín en el dedo corazón para recordarlo. Entonces miró un poco de televisión,
+y tras terminar el programa, cuando se dispuso a cambiar de canal, se dio cuenta
+que su dedo, el del piolín obviamente, estaba totalmente ennegrecido y arrugado.
+Peor aún, a pesar de desatarlo, este había perdido la sensibilidad, y no
+recuperaba su rosadito color habitual. \textbf{\emph{Frank}} se asustó tanto,
+que corrió raudo hasta la calle, y tomó un taxi hasta el hospital más cercano,
+sin advertir que estaba en pijama, y que este no dejaba nada a la imaginación.
+En el hospital, les explicó que, por razones que no podemos repetir, para él era
+muy importante este dedo, y que no podía perderlo. Entonces le dieron una bata
+para que pueda poner sobre el pijama y proteger la sensibilidad del resto de los
+pacientes, y le realizaron estrambóticos procedimientos médicos. Luego de un par
+de horas \textbf{\emph{Frank}} pudo recuperar el funcionamiento habitual de su
+dedo. Cuando el médico le preguntó que por qué se le había puesto así el dedo,
+\textbf{\emph{Frank}} le explicó que se había atado algo. Tras lo cual el médico
+hizo una obvia segunda pregunta, lo cual provocó algo similar a un click en
+algún recóndito lugar del cerebro de \textbf{\emph{Frank}}, seguido de una
+catarata de imágenes mentales, la mayoría de ellas relacionadas al supermercado
+Mes\%. Entonces, repentinamente, se levantó, corrió hasta la puerta del
+hospital, y tomó un taxi nuevamente hasta su casa. Al llegar, abrió su mail,
+para enterarse de que nuevamente había perdido la entrega. Se le informaba,
+además, de que su usuario ``\texttt{f\_estein}'' había perdido la posibilidad de
+realizar compras contrareembolso, hasta pagar una multa de \$100, lo cual
+ciertamente lo puso de muy mal humor.
+
+\fixme[Habría que agregar algunos casos de usos más específicos, de situaciones
+que no hayan sido descriptas en los que ya agregué...]
