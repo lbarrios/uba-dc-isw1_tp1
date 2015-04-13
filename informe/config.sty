@@ -74,5 +74,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Custom Commands
 \newcommand{\centerbf}[1]{\begin{center}\textbf{#1}\end{center}}
-\newcommand{\fixme}{\begin{center}{\color{red}\Huge \framebox{\parbox{10em}{\begin{center}\vspace{1em}FIX ME\vspace{1em}\end{center}}}}\end{center}}
+\newcommand{\fixme}[1][]{%
+\begin{center}{%
+\color{red}\Huge \framebox{%
+\parbox{18em}{\begin{center}\vspace{1em}FIX ME%
+\ifthenelse{\equal{#1}{}}{}{: \Large#1}%
+\vspace{1em}\end{center}}
+}}\end{center}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
