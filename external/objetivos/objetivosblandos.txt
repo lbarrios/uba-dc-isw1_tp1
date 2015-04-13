@@ -1,0 +1,15 @@
+﻿E = evitar
+M = mantener
+L = lograr
+A = asegurar
+Y = y-refinamiento
+O = o-refinamiento
+<> = presunción
+
+;;; objetivos blandos
+
+maximizar ganancia (1)
+    maximizar ventas (1.1)
+    minimizar costos (1.2)
+    tener la mejor relacion posible con clientes (1.3)
+        ofrecer la mejor seguridad posible a los clientes (1.3.1)
