@@ -14,18 +14,40 @@ asumidas/interpretadas por cuenta propia.
 
 \begin{itemize}
 
-  \item En caso de que la cadena de supermercados decida inaugurar más depósitos, tanto la reposición de stock como los traslados entre estos estarán a cargo de la compañía. A efectos prácticos, se asumirá, que existe un solo depósito, cuyo stock es la sumatoria del stock de todos los depósitos, y que todos los pedidos serán entregados desde el mismo.
+  \item En caso de que la cadena de supermercados decida inaugurar más
+\textbf{\red{depósitos}}, tanto la reposición de stock como los traslados
+interdepósito estarán a cargo de la compañía, sin ningún tipo de intervención
+por parte del \textbf{\blue{sistema}}. A efectos prácticos, entonces, se asumirá
+que existe un solo \textbf{\red{depósito}}, cuyo stock es la sumatoria del stock
+de todos los \textbf{\red{depósitos}}, y que todos los pedidos serán entregados
+desde el mismo.
 
-  \item Una empresa de logística se encargará de todos los traslados que se originen en un depósito. El sistema deberá contar con una interfaz adecuada que actúe como canal de comunicación bilateral con dicha empresa. Este canal deberá ser apto tanto para realizar consultas y pedidos de forma online, a través de solicitudes directas al servidor de la compañía de logística, como para informar o ingresar datos de forma indirecta, a través de la impresión o la carga manual de: remitos de traslado, comprobantes de pago, facturas, hojas de ruta, etcétera.
+  \item Una empresa de \textbf{\magenta{logística}} se encargará de todos los
+traslados que se originen en cualquier \textbf{\red{depósito}}. El
+\textbf{\blue{sistema}} deberá contar con una interfaz adecuada que actúe como
+canal de comunicación bilateral con dicha empresa. Este canal deberá ser apto
+tanto para realizar consultas y pedidos de forma online, a través de solicitudes
+directas al servidor de la compañía de \textbf{\magenta{logística}}, como para
+informar o ingresar datos de forma indirecta, a través de la impresión o la
+carga manual de: remitos de traslado, comprobantes de pago, facturas, hojas de
+ruta, etcétera.
 
-  \item El sistema deberá llevar, en todo momento, un control activo del stock del depósito.
+  \item Las entregas son realizadas por una empresa de
+\textbf{\magenta{logística}} externa al \textbf{\blue{sistema}}. Asumimos que el
+\textbf{\blue{sistema}} tiene una forma de calcular u obtener el tiempo mínimo
+de entrega, de forma tal de poder ofrecerle al cliente un rango de fechas de
+entrega válido. \fixme[Dice lo mismo que la anterior.]
 
-  \item Las entregas son realizadas por una empresa de logística externa al sistema. Asumimos que el sistema tiene una forma de calcular u obtener el tiempo mínimo de entrega, de forma tal de poder ofrecerle al cliente un rango de fechas de entrega válido.
+  \item El \textbf{\blue{sistema}} deberá llevar, en todo momento, un control
+activo (en tiempo real, en línea) del stock del \textbf{\red{depósito}}.
 
-  \item Existe un Dpto. de stock, que se encarga de organizar los pedidos a las proveedoras. 
+  \item Existe un \textbf{\orange{Departamento de Stock}}, que se encarga de
+organizar los pedidos a las proveedoras cuando un \textbf{\red{depósito}} se
+queda sin stock.
 
-  \item No puede permanecer un pedido abierto hasta el momento que sale el camion. Se cierra al momento que el Depósito informa que el pedido fue armado. 
-
-  \item Las entregas son realizadas por una empresa de logística externa al sistema. Asumimos que el sistema tiene una forma de calcular u obtener el tiempo mínimo de entrega, de forma tal de poder ofrecerle al cliente un rango de fechas de entrega válido.
+  \item Cada pedido se cierra al momento en que el \textbf{\red{depósito}}
+informa que el mismo fue armado. Consecuentemente, se asume que estos no
+necesariamente permanecerán abiertos hasta el momento en que son retirados por
+\textbf{\magenta{logística}}.
 
 \end{itemize}
