@@ -9,9 +9,16 @@ E perder ventas
                 L el cliente es identificado por el sistema
                     Y
                     L el cliente es registrado
-                        O
-	                L el cliente se registra en sucursal // refinar
-                        L el cliente se registra online // refinar
+                        O // TODO: en los o refinamientos, refinar bien para abajo
+	                L registración en sucursal // poner "o cancelado"? (si la documentacion esta mal)
+                            Y
+                            L presentar documentación que acredite domicilio en sucursal -> CLIENTE
+                            L verificar documentación -> SUCURSAL
+                            L cargar datos en sistema -> SUCURSAL
+                        L registración online
+                            Y
+                            L ingresar datos al sistema -> CLIENTE
+                            L verificar datos (domicilio válido por ejemplo) y añadir cliente -> SISTEMA
                     L el cliente se autentica de forma segura
                         Y
                         L ingresar credenciales -> CLIENTE
@@ -46,14 +53,14 @@ E perder ventas
                             Y
                             L Si el pedido era contrareembolso, se cobra -> LOGISTICA
                             L el pedido es entregado -> LOGISTICA
-                            L se aumenta el rating del cliente -> SISTEMA
+                            L añadir una recepción al historial de recepciones del cliente -> SISTEMA
                             L se actualiza historial de compra del cliente, y de productos -> SISTEMA // refinar? cliente para sistema de recomendaciones, productos para ir pidiendo stock
                      	L si el cliente no recibe el envío, no se realiza el procedimiento de entrega
                             Y
                             L si la forma de pago era online, se reintegra el dinero -> SISTEMA
-                            L se disminuye el rating del cliente -> SISTEMA
+                            L añadir una no-recepcion al historial de recepciones del cliente -> SISTEMA
                             L se devuelve el stock al depósito -> LOGÍSTICA
-                            L se ofrece rehacer el pedido -> SISTEMA
+                            L se ofrece rehacer el pedido -> SISTEMA // refinar, aca entra el agente mail
                 L Si el usuario cancela el pedido, se anula -> SISTEMA
         <> las ventas online van a disminuir las colas en la sucursal
     M stock disponible
