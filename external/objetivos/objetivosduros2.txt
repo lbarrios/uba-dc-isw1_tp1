@@ -1,68 +1,66 @@
-
-;;; objetivos duros
-
 E perder ventas
     Y
     L reducir colas
         Y
-        L operación online
+        L permitir operación online
 	    Y
 	    L cliente encarga pedido
 	        Y
-                     L el cliente es identificado por el sistema
+                L el cliente es identificado por el sistema
+                    Y
+                    L el cliente es registrado
+                        O
+	                L el cliente se registra en sucursal // refinar
+                        L el cliente se registra online // refinar
+                    L el cliente se autentica de forma segura
                         Y
-                        L el cliente es registrado
-                            O
-	                    L el cliente se registra en sucursal
-                            L el cliente se registra online
-                        L el cliente se autentica de forma segura (quizas podar aca)
-                            Y
-                            L cliente ingresa credenciales -> CLIENTE
-			    L sistema provee interfaz segura -> SISTEMA
-		    L armado de pedido
-		        Y
-			L el sistema muestra stock disponible (gondola virtual) -> SISTEMA
-			L el cliente selecciona mercaderia (carrito virtual) ->  CLIENTE
-                    L acordar fecha de entrega
-			Y
-			L sistema obtiene fechas posibles -> LOGISTICA (?)
-                        L sistema informa fechas disponibles -> SISTEMA
-		        L cliente elige fecha -> CLIENTE
-	            L acordar forma de pago (contraentrega u online)
-			Y
-                        L sistema evalua rating usuario
-                      	    O
-                            evaluado por límite de ausencias consecutivas
-                            evaluado por metrica psico-social
-                        L sistema informa metodos permitidos al usuario -> SISTEMA
-                        L cliente elige metodo -> CLIENTE
-	    L el pedido es confirmado, pagado y entregado; o cancelado
+                        L ingresar credenciales -> CLIENTE
+		        L proveer interfaz segura -> SISTEMA
+		L armado de pedido
+		    Y
+		    L mostrar stock disponible (gondola virtual) -> SISTEMA
+		    L seleccionar mercaderia (carrito virtual) ->  CLIENTE
+                L acordar fecha de entrega
+		    Y
+		    L calculo fecha disponibles -> LOGISTICA
+                    L mostrar fechas disponibles -> SISTEMA
+		    L elegir fecha -> CLIENTE
+	        L acordar forma de pago (contraentrega u online)
+		    Y
+                    L evaluar si permitir contraentrega
+                        O
+                        L evaluar por ultima ausencia -> SISTEMA // refinar
+                        L evaluar por rating usuario -> SISTEMA (quizas traer a como agente a un analista de negocios) // refinar
+                    L informar metodos de pago disponibles -> SISTEMA
+                    L elegir forma de pago -> CLIENTE
+	    L el pedido es cerrado
                 CASE
                 L Si el usuario confirma el pedido, se prepara y entrega a la empresa de logística
                     Y
-                    L el pedido se prepara
-                    L los productos son restados del stock
-                    L el pedido se entrega a la empresa de logística
-                    L la empresa de logística realiza el envío en cuanto lo recibe
+                    L preparar pedido -> DEPOSITO
+                    L los productos son restados del stock -> SISTEMA
+                    L el pedido se entrega a la empresa de logística -> DEPOSITO
+                    L realizar envío
                     	CASE
-                        el cliente recibe el pedido
+                        L si el cliente recibe el pedido, se realiza el procedimiento de entrega
                             Y
-                            L Si el pedido era contrareembolso, logística lo cobra -> LOGISTICA
-                            L Logística entrega  el pedido -> LOGISTICA
-                            L El sistema aumenta el rating del cliente -> SISTEMA
-                     	el cliente no recibe el envío
+                            L Si el pedido era contrareembolso, se cobra -> LOGISTICA
+                            L el pedido es entregado -> LOGISTICA
+                            L se aumenta el rating del cliente -> SISTEMA
+                            L se actualiza historial de compra del cliente, y de productos -> SISTEMA // refinar? cliente para sistema de recomendaciones, productos para ir pidiendo stock
+                     	L si el cliente no recibe el envío, no se realiza el procedimiento de entrega
                             Y
-                            L la empresa le reintegra su dinero si pago online
-                            L El sistema disminuye el rating del cliente -> SISTEMA
-                            L El sistema ofrece rehacer el pedido -> SISTEMA
-                L Si el usuario cancela el pedido, se anula
-                <> El usuario confirma o cancela el pedido
+                            L si la forma de pago era online, se reintegra el dinero -> SISTEMA
+                            L se disminuye el rating del cliente -> SISTEMA
+                            L se devuelve el stock al depósito -> LOGÍSTICA
+                            L se ofrece rehacer el pedido -> SISTEMA
+                L Si el usuario cancela el pedido, se anula -> SISTEMA
         <> las ventas online van a disminuir las colas en la sucursal
     M stock disponible
         Y
-	L sucursal chequea stock faltante -> SUCURSAL
-	L sucursal avisa al sistema cuando falta stock -> SUCURSAL
-	L el sistema toma pedidos y avisa a depósito -> SISTEMA
-	L depósito arma pedido y avisa a logistica -> DEPOSITO
-	L logística entrega stock a sucursal -> LOGÍSTICA
-    <> las únicas dos causas de la disminución son: colas y !stock
+	L chequeo stock faltante -> SUCURSAL
+	L avisar al sistema cuando falta stock -> SUCURSAL
+	L tomar pedidos y avisar a depósito -> SISTEMA
+	L armar pedido y avisar a logistica -> DEPOSITO
+	L entregar stock a sucursal -> LOGÍSTICA
+    <> las únicas dos causas de la disminución de ventas son las colas de espera y la falta de stock
