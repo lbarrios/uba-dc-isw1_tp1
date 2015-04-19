@@ -22,7 +22,6 @@ E perder ventas
                                 L verificar datos personales y de domicilio -> SUCURSAL
                                 L verificar tarjeta de crédito, si fue presentada -> AGENTE DE COBRO
                                 L cargar datos en sistema -> SUCURSAL
-                                L aumentar confianza en el cliente, si usamos el sistema de rating -> SISTEMA // esto ya no iria verdad?
                         L registro online
                             Y
                             L ingresar datos al sistema
@@ -34,10 +33,10 @@ E perder ventas
                                 L validar domicilio con API del correo argentino -> SISTEMA
                                 L evaluar estado financiero -> FINANCIERA
                                 L validar datos de pago > AGENTE DE COBRO
-                                L verificar mail existente
-                                L enviar mail de bienvenida
-                                L validar mail existente presionando vinculo
-                                L verificar password segura
+                                // de aca para abajo, no van tambien en presencial?
+                                L verificar mail existente -> SISTEMA DE CORREO ELECTRONICO
+                                L enviar mail de bienvenida // necesario?
+                                L verificar password segura -> SISTEMA?
                             L añadir cliente -> SISTEMA
                     L el cliente se autentica de forma segura
                         Y
@@ -47,7 +46,7 @@ E perder ventas
                     Y
                     L mostrar stock disponible (gondola virtual) -> SISTEMA
                     L mostrar recomendaciones -> SISTEMA // explicar en el texto, tendencias, “que compran los que compraron lo mismo que vos” / integracion con redes sociales
-                    L seleccionar mercaderia (carrito virtual) ->--CLIENTE
+                    L seleccionar mercaderia (carrito virtual) -> CLIENTE
                 L acordar fecha de entrega
                     Y
                     L calculo fecha disponibles -> LOGISTICA
@@ -59,7 +58,7 @@ E perder ventas
                         O
                         L evaluar por ultima ausencia
                             Y
-                            L bloquear contraentrega si el usuario no recibió un pedido
+                            L bloquear contraentrega si el usuario no recibió un pedido -> SISTEMA
                             L ofrecer pago de multa para salvarlo
                                 Y
                                 L calcular monto
@@ -72,7 +71,7 @@ E perder ventas
                                     si se paga online -> AGENTE DE COBRO
                         L evaluar perdida de rentabilidad
                             Y
-                            M pérdida de redituabilidad por arriba de umbral
+                            M pérdida de redituabilidad por arriba de umbral -> SISTEMA
                             L definir el umbral de redituabilidad -> ADMINISTRADOR
                             L contabilizar ingresos producidos por cliente
                                 L contabilizar ingresos producidos por compras -> SISTEMA
@@ -112,7 +111,8 @@ E perder ventas
             L chequeo stock faltante -> SUCURSAL
             L avisar al sistema cuando falta stock -> SUCURSAL
             L tomar pedidos y avisar a depósito -> SISTEMA
-            L armar pedido y entregar a logistica -> DEPOSITO // sistema debe restar stock
+            L armar pedido y entregar a logistica -> DEPOSITO
+            L disminuir stock de deposito -> SISTEMA
             L entregar stock a sucursal -> LOGÍSTICA
         L mantener stock disponible en depósitos
             Y
@@ -123,5 +123,6 @@ E perder ventas
                 Y
                 L avisar a departamento de stock cuando se llega al limite -> SISTEMA
                 L encargar envio y avisar a logistica -> DEPARTAMENTO DE STOCK
-                L realizar envio -> LOGISTICA // sistema debe aumentar stock
+                L realizar envio -> LOGISTICA
+                L aumentar stock -> SISTEMA
     <> las únicas dos causas de la disminución de ventas son las colas de espera y la falta de stock
