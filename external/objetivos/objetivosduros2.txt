@@ -2,7 +2,7 @@ E perder ventas
     Y
     L reducir colas
         Y
-        L permitir operaci�n online
+        L permitir operación online
 	    Y
 	    L cliente encarga pedido
 	        Y
@@ -10,15 +10,15 @@ E perder ventas
                     Y
                     L el cliente es registrado
                         O // TODO: en los o refinamientos, refinar bien para abajo
-	                L registraci�n en sucursal // poner "o cancelado"? (si la documentacion esta mal)
+	                L registración en sucursal // poner "o cancelado"? (si la documentacion esta mal)
                             Y
-                            L presentar documentaci�n que acredite domicilio en sucursal -> CLIENTE
-                            L verificar documentaci�n -> SUCURSAL
+                            L presentar documentación que acredite domicilio en sucursal -> CLIENTE
+                            L verificar documentación -> SUCURSAL
                             L cargar datos en sistema -> SUCURSAL
-                        L registraci�n online
+                        L registración online
                             Y
                             L ingresar datos al sistema -> CLIENTE
-                            L verificar datos (domicilio v�lido por ejemplo) y a�adir cliente -> SISTEMA
+                            L verificar datos (domicilio válido por ejemplo) y añadir cliente -> SISTEMA
                     L el cliente se autentica de forma segura
                         Y
                         L ingresar credenciales -> CLIENTE
@@ -42,24 +42,24 @@ E perder ventas
                     L elegir forma de pago -> CLIENTE
 	    L el pedido es cerrado
                 CASE
-                L Si el usuario confirma el pedido, se prepara y entrega a la empresa de log�stica
+                L Si el usuario confirma el pedido, se prepara y entrega a la empresa de logística
                     Y
                     L preparar pedido -> DEPOSITO
                     L los productos son restados del stock -> SISTEMA
-                    L el pedido se entrega a la empresa de log�stica -> DEPOSITO
-                    L realizar env�o
+                    L el pedido se entrega a la empresa de logística -> DEPOSITO
+                    L realizar envío
                     	CASE
                         L si el cliente recibe el pedido, se realiza el procedimiento de entrega
                             Y
                             L Si el pedido era contrareembolso, se cobra -> LOGISTICA
                             L el pedido es entregado -> LOGISTICA
-                            L a�adir una recepci�n al historial de recepciones del cliente -> SISTEMA
+                            L añadir una recepción al historial de recepciones del cliente -> SISTEMA
                             L se actualiza historial de compra del cliente, y de productos -> SISTEMA // refinar? cliente para sistema de recomendaciones, productos para ir pidiendo stock
-                     	L si el cliente no recibe el env�o, no se realiza el procedimiento de entrega
+                     	L si el cliente no recibe el envío, no se realiza el procedimiento de entrega
                             Y
                             L si la forma de pago era online, se reintegra el dinero -> SISTEMA
-                            L a�adir una no-recepcion al historial de recepciones del cliente -> SISTEMA
-                            L se devuelve el stock al dep�sito -> LOG�STICA
+                            L añadir una no-recepcion al historial de recepciones del cliente -> SISTEMA
+                            L se devuelve el stock al depósito -> LOGÍSTICA
                             L se ofrece rehacer el pedido -> SISTEMA // refinar, aca entra el agente mail
                 L Si el usuario cancela el pedido, se anula -> SISTEMA
         <> las ventas online van a disminuir las colas en la sucursal
@@ -67,7 +67,116 @@ E perder ventas
         Y
 	L chequeo stock faltante -> SUCURSAL
 	L avisar al sistema cuando falta stock -> SUCURSAL
-	L tomar pedidos y avisar a dep�sito -> SISTEMA
+	L tomar pedidos y avisar a depósito -> SISTEMA
 	L armar pedido y avisar a logistica -> DEPOSITO
-	L entregar stock a sucursal -> LOG�STICA
-    <> las �nicas dos causas de la disminuci�n de ventas son las colas de espera y la falta de stock
+	L entregar stock a sucursal -> LOGÍSTICA
+    <> las únicas dos causas de la disminución de ventas son las colas de espera y la falta de stock
+
+
+
+E perder ventas
+--Y
+--L reducir colas
+----Y
+----L permitir operación online
+----Y
+----L cliente encarga pedido
+------Y
+--------L el cliente es identificado por el sistema
+----------Y
+----------L el cliente es registrado
+------------O // TODO: en los o refinamientos, refinar bien para abajo
+------------L registro presencial
+----------------Y
+----------------L presentar documentación
+------------------Y
+------------------L presentar documentación de identidad -> CLIENTE
+------------------L presentar factura asociada al domicilio -> CLIENTE
+------------------L presentar datos de tarjeta, si quiere hacer pagos online -> CLIENTE
+----------------L verificar documentación
+------------------Y
+------------------L verificar datos personales y de domicilio -> SUCURSAL
+------------------L verificar tarjeta de crédito, si fue presentada -> AGENTE DE COBRO
+----------------L cargar datos en sistema -> SUCURSAL
+----------------L aumentar confianza en el cliente, si usamos el sistema de rating -> SISTEMA
+------------L registro online
+--------------Y
+--------------L ingresar datos al sistema
+----------------Y
+----------------L presentar datos de identificación personal y de domicilio -> CLIENTE
+----------------L presentar datos de pago, si quiere hacer pagos online -> CLIENTE
+-------------L verificar datos
+---------------Y
+---------------L validar domicilio con API del correo argentino -> SISTEMA
+---------------L evaluar estado financiero -> FINANCIERA
+---------------L validar datos de pago > AGENTE DE COBRO
+---------------L verificar mail existente
+-----------------L enviar mail de bienvenida
+-----------------L validar mail existente presionando vinculo
+---------------L verificar password segura
+-------------L añadir cliente -> SISTEMA
+----------L el cliente se autentica de forma segura
+------------Y
+------------L ingresar credenciales -> CLIENTE
+--------L proveer interfaz segura -> SISTEMA
+----L armado de pedido
+------Y
+------L mostrar stock disponible (gondola virtual) -> SISTEMA
+------L mostrar recomendaciones -> SISTEMA // explicar en el texto, tendencias, “que compran los que compraron lo mismo que vos” / integracion con redes sociales
+------L seleccionar mercaderia (carrito virtual) ->--CLIENTE
+--------L acordar fecha de entrega
+------Y
+------L calculo fecha disponibles -> LOGISTICA
+--------L mostrar fechas disponibles -> SISTEMA
+------L elegir fecha -> CLIENTE
+------L acordar forma de pago (contraentrega u online)
+------Y
+--------L evaluar si permitir contraentrega
+----------O
+----------L evaluar por ultima ausencia
+------------Y
+------------L bloquear contraentrega si el usuario no recibió un pedido
+------------L ofrecer pago de multa para salvarlo
+--------------Y
+--------------L calcular monto
+--------------L recibir medio de pago
+----------------Y
+----------------si se paga en efectivo -> LOGISTICA O LOGISTICO
+----------------si se paga online -> AGENTE DE COBRO
+----------L evaluar perdida de rentabilidad
+------------Y
+------------M p\’erdida de redituabilidad por arriba de umbral
+------------L definir el umbral de redituabilidad -> ADMINISTRADOR
+------------L contabilizar ingresos producidos por cliente
+--------------L contabilizar ingresos producidos por compras -> SISTEMA
+--------------L evaluar ingreso generado por influencia social -> SISTEMA
+------------L contabilizar perdidas producidas por cliente
+--------------L informar costo de envio a ese domicilio -> LOGISTICA
+--------------L informar costo de mercadería perecedera rechazada -> SISTEMA
+----------L informar metodos de pago disponibles -> SISTEMA
+----------L elegir forma de pago -> CLIENTE
+----L el pedido es cerrado
+--------CASE
+--------L Si el usuario confirma el pedido, se prepara y entrega a la empresa de logística
+----------Y
+----------L preparar pedido -> DEPOSITO
+----------L los productos son restados del stock -> SISTEMA
+----------L el pedido se entrega a la empresa de logística -> DEPOSITO
+----------L realizar envío
+------------CASE
+------------L si el cliente recibe el pedido, se realiza el procedimiento de entrega
+--------------Y
+--------------L Si el pedido era contrareembolso, se cobra -> LOGISTICA
+--------------L el pedido es entregado -> LOGISTICA
+--------------L añadir una recepción al historial de recepciones del cliente -> SISTEMA
+--------------L se actualiza historial de compra del cliente, y de productos -> SISTEMA // en el texto explicar: cliente para sistema de recomendaciones, productos para ir pidiendo stock
+------------L si el cliente no recibe el envío, no se realiza el procedimiento de entrega
+--------------Y
+--------------L si la forma de pago era online, se reintegra el dinero -> SISTEMA
+--------------L añadir una no-recepcion al historial de recepciones del cliente -> SISTEMA
+--------------L se devuelve el stock al depósito -> LOGÍSTICA
+--------------L se ofrece rehacer el pedido -> SISTEMA DE CORREO ELECTRONICO
+--------L Si el usuario cancela el pedido, se anula -> SISTEMA
+----<> las ventas online van a disminuir las colas en la sucursal
+
+
