@@ -1,0 +1,13 @@
+Maximizar ganancia
+
+    Maximizar ventas
+        Maximizar ventas online
+        Maximizar ventas sucursal
+    
+    Minimizar costos
+        Minimizar envíos fallidos
+        Minimizar costo de atender en sucursal
+    
+    Maximizar relación con cliente
+        Maximizar la seguridad en la comunicación
+        Maximizar la comodidad
