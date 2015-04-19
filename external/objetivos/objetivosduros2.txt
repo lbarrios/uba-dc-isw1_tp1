@@ -6,12 +6,13 @@ E perder ventas
             Y
             L cliente encarga pedido
                 Y
-                L el cliente es identificado por el sistema
+                L el cliente identificado por el sistema
                     Y
-                    L el cliente es registrado
+                    L cliente registrado
                         O
                         L registro presencial
                             Y
+                            L trasladarse a sucursal -> CLIENTE
                             L presentar documentación
                                 Y
                                 L presentar documentación de identidad -> CLIENTE
@@ -21,7 +22,7 @@ E perder ventas
                                 Y
                                 L verificar datos personales y de domicilio -> SUCURSAL
                                 L verificar tarjeta de crédito, si fue presentada -> AGENTE DE COBRO
-                                L cargar datos en sistema -> SUCURSAL
+                            L cargar datos en sistema -> SUCURSAL
                         L registro online
                             Y
                             L ingresar datos al sistema
@@ -65,25 +66,27 @@ E perder ventas
                                     Y
                                     L calcular costo de envio a ese domicilio -> LOGÍSTICA
                                     L calcular costo de mercadería perecedera rechazada -> SISTEMA
-                                L recibir medio de pago
+                                L recibir pago
                                     Y
                                     si se paga en efectivo -> LOGISTICA
                                     si se paga online -> AGENTE DE COBRO
-                        L evaluar perdida de rentabilidad
+                        L evaluar perdida de redituabilidad
                             Y
-                            M pérdida de redituabilidad por arriba de umbral -> SISTEMA
+                            M redituabilidad por encima del umbral
+                                L contabilizar ingresos generados por cliente
+                                    Y
+                                    L contabilizar ingresos producidos por compras -> SISTEMA
+                                    L evaluar ingreso generado por influencia social -> SISTEMA
+                                L contabilizar perdidas producidas por cliente
+                                    Y
+                                    L informar costo de envio a ese domicilio -> LOGISTICA
+                                    L informar costo de mercadería perecedera rechazada -> SISTEMA
                             L definir el umbral de redituabilidad -> ADMINISTRADOR
-                            L contabilizar ingresos producidos por cliente
-                                L contabilizar ingresos producidos por compras -> SISTEMA
-                                L evaluar ingreso generado por influencia social -> SISTEMA
-                            L contabilizar perdidas producidas por cliente
-                                L informar costo de envio a ese domicilio -> LOGISTICA
-                                L informar costo de mercadería perecedera rechazada -> SISTEMA
                     L informar metodos de pago disponibles -> SISTEMA
                     L elegir forma de pago -> CLIENTE
             L el pedido es cerrado
                 CASE
-                L Si el usuario confirma el pedido, se prepara y entrega a la empresa de logística
+                L Si el usuario confirma el pedido, se prepara y entrega
                     Y
                     L preparar pedido -> DEPOSITO
                     L los productos son restados del stock -> SISTEMA
@@ -92,7 +95,7 @@ E perder ventas
                         CASE
                         L si el cliente recibe el pedido, se realiza el procedimiento de entrega
                             Y
-                            L Si el pedido era contrareembolso, se cobra -> LOGISTICA
+                            L Si la forma de pago era contraentrega, se cobra -> LOGISTICA
                             L el pedido es entregado -> LOGISTICA
                             L añadir una recepción al historial de recepciones del cliente -> SISTEMA
                             L se actualiza historial de compra del cliente, y de productos -> SISTEMA // en el texto explicar: cliente para sistema de recomendaciones, productos para ir pidiendo stock
@@ -117,6 +120,7 @@ E perder ventas
         L mantener stock disponible en depósitos
             Y
             M servicio de AltaBajaModificaciones de productos
+                Y
                 L proveer estadisticas de venta de producto y tendencias -> SISTEMA
                 L modificar limite estipulado para cada producto -> DEPARTAMENTO DE STOCK
             M cada producto por encima de limite estipulado
