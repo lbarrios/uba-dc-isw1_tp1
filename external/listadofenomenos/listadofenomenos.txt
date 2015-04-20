@@ -1,0 +1,56 @@
+Cliente,Sucursal,se traslada a,Registro presencial cliente
+Cliente,Sucursal,presenta documentación,Registro presencial cliente
+Cliente,Sucursal,presenta factura asociada al domicilio,Registro presencial cliente
+Cliente,Sucursal,presenta datos de tarjeta,Registro presencial cliente
+Agente de Cobro,Cliente,verifica la tarjeta de crédito,Registro presencial cliente
+Sucursal,Cliente,verifica datos personales y de domicilio,Registro presencial cliente
+Sucursal,Sistema,carga datos de cliente,Registro presencial cliente
+Cliente,Sistema,presenta datos de identificación personal y de domicilio,Registro online cliente
+Cliente,Sistema,presenta datos de pago,Registro online cliente
+Sistema,Correo Argentino,valida domicilio,Registro online cliente
+Financiera,Cliente,evalúa estado financiero,Registro online cliente
+Agente de Cobro,Cliente,valida datos de pago,Registro online cliente
+Sistema,Cliente,añade a,Registro cliente
+Cliente,Sistema,ingresa credenciales,Inicio sesión
+Administrador,Sistema,ingresa credenciales,Inicio sesión
+Cliente,Sistema,cierra sesión,Cierre sesión
+Administrador,Sistema,cierra sesión,Cierre sesión
+Sistema,Cliente,muestra stock disponible,Registro pedido
+Sistema,Cliente,muestra recomendaciones,Registro pedido
+Cliente,Sistema,selecciona mercadería,Registro pedido
+Logística,Sistema,calcula costo de envío a ese domicilio,Acuerdo de fecha
+Sistema,Cliente,bloquea contraentrega,Acuerdo de fecha
+Sistema,Cliente,ofrece pago de multa para salvarlo,Acuerdo de fecha
+Administrador,Sistema,define el umbral de redituabilidad,Acuerdo de fecha
+Sistema,Cliente,contabiliza ingresos producidos por compras,Acuerdo de fecha
+Sistema,Cliente,evalúa ingreso generado por influencia social,Acuerdo de fecha
+Sistema,Cliente,informa métodos de pago disponibles,Acuerdo de fecha
+Cliente,Sistema,elige forma de pago,Acuerdo de fecha
+Cliente,Sistema,modifica un pedido,Modificación de pedido
+Sistema,Cliente,le dá un crédito si quita mercadería paga,Modificación de pedido
+Sucursal,Sistema,modifica un pedido,Modificación de pedido
+Cliente,Agente de Cobro,pago online,Pago
+Agente de Cobro,Sistema,confirma pago,Pago
+Sistema,Cliente,confirma la recepción del pago,Registro pedido
+Cliente,Sistema,confirma el pedido,Preparación pedido
+Sistema,Depósito,avisa que prepare el pedido,Preparación pedido
+Depósito,Departamento de stock,informa egreso de mercadería,Preparación pedido
+Depósito,Sistema,avisa que el pedido está cerrado,Preparación pedido
+Depósito,Logística,entrega mercadería,Entrega pedido
+Logística,Cliente,cobra (contra entrega),Pago
+Logística,Cliente,entrega el pedido,Entrega pedido
+Sistema,Cliente,actualiza positivamente el perfil,Entrega pedido
+Sistema,Cliente,reintegra el dinero si no-entrega,Entrega fallida
+Sistema,Cliente,añade una no-recepción al historial de recepciones,Entrega fallida
+Logística,Depósito,devuelve el stock,Entrega fallida
+Sistema de Correo electrónico,Cliente,ofrece rehacer el pedido,Entrega fallida
+Sucursal,Sistema,avisa cuando falta stock,Reposicion stock sucursal
+Sistema,Depósito,avisa falta de stock en sucursal,Reposicion stock sucursal
+Depósito,Logística,arma pedido y entrega,Reposicion stock sucursal
+Sistema,Depósito,disminuye stock,Reposicion stock sucursal
+Logística,Sucursal,entrega stock,Reposicion stock sucursal
+Departamento de stock,Sistema,modifica límite estipulado para cada producto,Reposicion stock deposito
+Sistema,Departamento de stock,avisa que hay faltante de producto,Reposicion stock deposito
+Departamento de stock,Logística,encarga envío y entrega,Reposicion stock deposito
+Logística,Sucursal,repone stock,Reposicion stock deposito
+Administrador,Sistema,consulta estadísticas,Consulta estadísticas
