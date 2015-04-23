@@ -73,4 +73,187 @@ compra.
   \includegraphics[width=\linewidth]{images/objetivo-blando-ranking-cliente.png}
 \end{figure}
 
-\fixme[Agregar completar tabla y agregar texto justificando los puntajes]
+\subparagraph{Cliente Bueno / Cliente Malo:}
+
+Llamaremos cliente bueno a aquel que se asume que en el futuro va a producir
+ingresos mediante compras de algún tipo. En particular, cuando estemos
+hablando de compras online, un cliente bueno será aquel que en el futuro
+realizará compras online. Lo mismo sucede con las compras en sucursal. De
+igual modo, se define un cliente malo como aquel que, por cualquiera de las
+posibles razones, no va generar ingresos (o peor, va a generar costos) en el
+futuro. Obviamente, como se está hablando de eventos futuros, siempre que
+hablemos de ``clientes buenos'' y ``clientes malos'', se estará hablando de la
+posibilidad de que un cliente sea bueno, o de que un cliente sea malo, y no de
+una certeza.
+
+\paragraph{Maximizar Ventas:}
+
+\subparagraph{Maximizar Ventas Online:}
+
+Al bloquearle al cliente la posibilidad de realizar ventas online
+contrareembolso, si bien es posible que algunos clientes buenos sigan
+comprando de forma online, mediante pago online, también existen las
+posibilidades de que otros clientes buenos opten por no realizar compras
+online, pasandose a la modalidad de compra en sucursal, o de que incluso dejen
+de comprar en esa cadena de supermercados, ya sea por inconveniencia, o por
+una reacción de enojo causada por el bloqueo.
+
+Al realizar el bloqueo de ventas contrareembolso mediante un límite de
+entregas fallidas fijo (en este caso consideramos que se le permitiría solo
+una, pero el razonamiento es similar para un límite mayor), sería fácil que se
+de la posibilidad de que un cliente bueno (es decir, uno que en el futuro
+produciría ingresos por compras), deje de realizar compras online. Esto es
+porque al establecer un límite fijo, no se está teniendo en cuenta el
+comportamiento anterior del cliente, sino el simple hecho de que en un
+determinado momento falló un envío. El comportamiento anterior del cliente
+ayuda a, en mayor o menor medida, predecir cuál sería su comportamiento
+futuro. Para dar un ejemplo puntual, supongamos que falla la entrega a un
+cliente que realiza compras online de aproximadamente $\$1000$ cada día, y
+consecuentemente se le bloquea la posibilidad de realizar compras
+contrareembolso. Si esto fue un error ``de una sola vez'', y el cliente sigue
+realizando compras diarias de $\$1000$, y elige comprar en sucursal o
+directamente comprar en otra cadena de supermercados, se están perdiendo
+$\$1000$ pesos de compras online por día. Esta sería una situación no
+deseable.
+
+A diferencia del ejemplo anterior, al decidir el bloqueo de las ventas
+contrareembolso a partir de la asignación de un puntaje que dependa de la
+redituabilidad de ese cliente, se está teniendo en cuenta el ``historal'' de
+ese cliente. Entonces, volviendo a la misma situación anterior, si un cliente
+realiza compras diarias, y en gran cantidad, y uno de esos días una de los
+envíos no es recibido, si bien es cierto que esto le estaría ocasionando
+costos a la empresa, y por lo tanto una pérdida de rentabilidad, se estaría
+aceptando una determinado umbral de variación en la rentabilidad, en pos de no
+perder la posibilidad de que un cliente bueno siga produciendo ingresos en el
+futuro.
+
+\subparagraph{Maximizar Ventas Sucursal:}
+
+Se puede llegar a interpretar que al bloquearle la venta contrareembolso, un
+cliente podría optar por comprar en sucursal, y por lo tanto asumir que
+cualquiera de las metodologías aporta al objetivo de maximizar las ventas en
+sucursal. Más aún, siguiendo esta línea de pensamiento, el refinamiento que
+más frecuentemente produzca bloqueos de ventas contrareembolso sería el que
+más aporta a maximizar las ventas en sucursal.
+
+Esta forma de pensar no nos parece correcta ya que, en todo caso, se podría
+considerar que el cliente está siendo coercionado, debido a que no tiene una
+voluntad real de realizar compras en la sucursal, o al menos no la tenía al
+momento en que se le hizo el bloqueo, sino que esta ``decisión'' se produce
+como consecuencia colateral del bloqueo, ya que en este caso al decidir
+realizar este bloqueo la empresa no lo está haciendo con el objetivo de
+estimular las ventas en sucursal, sino de evitar los costos que le producen
+las entregas fallidas.
+
+Además, uno de los objetivos para los cuales fue solicitado el sistema de
+compras online, es evitar que las ventas que podrían realizarse de forma
+online, sean realizadas en sucursal, ya que eso genera inconvenientes en las
+colas y en el stock. Que un cliente deje de comprar online y compre en
+sucursal, entonces, está aportando a que se produzcan estos inconvenientes que
+se querían evitar en un principio. Estamos asumiendo que existen ciertos
+clientes que no tienen la posibilidad, o no quieren, realizar sus compras por
+internet. El objetivo de ``maximizar las ventas en sucursal'', apunta
+realmente a que estos clientes puedan realizar sus compras sin inconvenientes.
+Desde este punto de vista, al producir una mayor demanda en las sucursales, se
+está atentando contra el objetivo.
+
+Por los motivos expuestos, asignamos un puntaje neutral en ambos
+refinamientos, ya que si bien es cierto que en ambos casos se están
+``fomentando'' las ventas en sucursal, lo cual podría ser considerado como
+positivo, también es cierto que esto no es una consecuencia directa, ni es el
+objetivo del refinamiento, y que este aumento en las ventas no necesariamente
+tiene un aporte significativo al objetivo de ``maximizar las ventas'', sino
+que incluso puede jugarle en contra, generando una mayor demanda de stock y un
+abarrotamiento en las sucursales a causa de clientes que en realidad podrían
+estar comprando online. Minimizar Costos: Minimizar envíos fallidos: Es
+prácticamente imposible evitar los envíos fallidos, ya que son situaciones que
+no se pueden predecir.
+
+Desde el punto de vista de las entregas contrareembolso, al cortarle la
+posibilidad de realizar pedidos contraentrega ante la primer entrega fallida,
+se está minimizando totalmente el riesgo de que se produzcan nuevas entregas
+fallidas. Ya que, si bien un cliente malo puede comprar pagando de forma
+online, y producir entregas fallidas, el costo de la entrega se le estaría
+debitando en cada compra, por lo que no se estaría produciendo un perjuicio
+para la empresa. Más aún, esto produciría un efecto en el comportamiento del
+cliente, ya que si este sabe de antemano que si no recibe una entrega perderá
+toda posibilidad de realizar nuevos pedidos contraentrega, va a ser mucho más
+cuidadoso. Este refinamiento ayuda, entonces, a minimizar los costos de
+entregas fallidas.
+
+Si, en cambio, el bloqueo de pedidos contraentrega se realiza en base a un
+rating, existe la posibilidad de que un cliente, manteniendo un buen rating,
+produzca de todos modos muchas entregas fallidas. También se produciría un
+efecto negativo en el cliente, ya que al no percibir consecuencias directas
+puede quitarle importancia a ``atender una entrega'', y no recibir entregas
+que en otro caso si recibiría (priorizando, quizás, otras actividades que le
+surjan).
+
+Volviendo al mismo ejemplo utilizado anteriormente, supongamos que existe un
+cliente que realiza compras que producen ingresos diarios de $\$1000$, pero al
+menos una vez por semana falla alguna entrega. En la primera opción de
+refinamiento, luego de la primer entrega fallida, se le bloquearía la
+contraentrega, y por lo tanto todos los futuros costos de entregas fallidas
+serían eliminados. En la segunda opción, el cliente estaría produciendo costos
+de entregas fallidas de forma constante y, además, al notar que su
+irresponsabilidad no produce ningún tipo de consecuencias, no se esforzaría
+por subsanarla.
+
+\subparagraph{Minimizar costos de atender en sucursal:}
+
+Asumiendo que ante una mayor cuota de clientes con contraentrega bloqueada,
+hay a su vez una mayor cuota de clientes que optan por comprar en sucursal, es
+evidente que la opción que más bloqueos a contraentrega produzca es la que más
+clientes estaría enviando a la sucursal.
+
+Teniendo en cuenta que atender un cliente en la sucursal tiene costos
+inherentes, la opción que estaría minimizando los costos de atender en
+sucursal es la de bloquear la contraentrega ante la primer entrega fallida.
+
+Del mismo modo, si se permite cierto umbral de entregas fallidas en base a la
+rentabilidad de ese cliente, el cliente no necesariamente se vería obligado a
+comprar en sucursal, y por lo tanto no produciría un gasto de atender en
+sucursal.
+
+Además, existe otro costo, que es el de disponer de una persona que pueda
+cobrar la multa que el cliente debe pagar para subsanar el costo del envío no
+recibido, y que se le vuelva a permitir contraentrega. En el caso de los
+clientes que no tengan la posibilidad de realizar compras online, estos se
+dirigirían a la sucursal para pagar la multa. En cualquier caso el primer
+refinamiento, al producir más bloqueos, produciría más multas, y estaría
+aportando a este costo. En el caso del segundo refinamiento, al aceptar un
+umbral de pérdida de rentabilidad, el costo de las multas no necesariamente
+debe ser pagado por el cliente, sino hasta que se supere el umbral. En este
+caso se podría considerar, además, la posibilidad de que la multa sea pagada
+en efectivo, junto con la siguiente compra contraentrega.
+
+\paragraph{Relación con cliente:}
+
+\subparagraph{Maximizar la seguridad en la comunicación:}
+
+No parece haber ningún tipo de relación entre la forma en que se decide (o no)
+permitir la contraentrega, y la seguridad en la comunicación con el cliente.
+Asignamos puntajes neutros en ambos refinamientos.
+
+\subparagraph{Maximizar la comodidad:}
+
+Asumiendo que la contraentrega es una comodidad que se le ofrece al cliente,
+ya que además de que se le brinda la posibilidad de comprar online, con todas
+las comodidades que esto acarrea, no necesita realizar el pago de forma
+online, lo que también puede considerarse una comodidad en caso de que el
+cliente no tenga forma de pagar online, o no desee hacerlo. Al bloquear la
+posibilidad de realizar contraentrega, entonces, se le está quitando esta
+comodidad. Dado el caso, el cliente tendrá que decidir si pagar online, o
+comprar en sucursal.
+
+Si bien ambas opciones de refinamiento pueden desembocar en un bloqueo de la
+modalidad contraentrega, ya se explicaron las razones por las cuales el primer
+refinamiento tiene potencialmente una mayor tasa de bloqueos, por lo que va en
+contra de la comodidad del cliente. Además, considerando que pueden haber
+razones reales por las que el cliente pueda ausentarse durante el horario de
+entrega, un cliente que siempre tuvo una buena conducta, puede sentirse
+enojado de que se le bloquee la contraentrega, lo cual atenta contra la buena
+relación con el mismo. Por otro lado, al manejar un sistema de rating, si bien
+no se está aportando de forma directa a la comodidad del cliente, se logra
+mantener una comodidad que de otra forma el cliente perdería, por lo que
+consideramos que hay un pequeño aporte aquí.
