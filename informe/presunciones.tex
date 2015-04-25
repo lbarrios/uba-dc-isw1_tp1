@@ -37,9 +37,11 @@ activo (en tiempo real, en línea) del stock del \textbf{\red{depósito}}.
 
   \item Existe un \textbf{\orange{Departamento de Stock}}, que se encarga de
 organizar los pedidos a las proveedoras cuando un \textbf{\red{depósito}} se
-queda sin stock.
-
-  \fixme[Ya no hay proveedoras.]
+queda sin stock. Todo esto se hace por fuera del sistema, las proveedoras no son
+Agentes de nuestro modelo de contexto. Asumimos que el
+\textbf{\orange{Departamento de Stock}} se comunica con \textbf{\red{logística}}
+(la logística propia o la de la proveedora, cualquiera sea el caso) en cuanto
+para que lleve los pedidos hasta el \textbf{\red{depósito}} correspondiente.
 
   \item Cada pedido se cierra al momento en que el \textbf{\red{depósito}}
 informa que el mismo fue armado. Consecuentemente, se asume que estos no
