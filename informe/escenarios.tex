@@ -3,17 +3,9 @@
 %--  
 \newpage
 \subsection{Escenarios representativos de uso}
-  
-  % \subsubsection{Registro, compra y pago online}
-
-  % Un usuario entra por primera vez al sitio, y se registra. Luego inicia sesión y el sistema le da la posibilidad de hacer una compra online. Una vez seleccionado los productos deseados y terminado de hacer el pedido, el usuario debe elegir la fecha de entrega. Para ello el sistema hace una consulta a la Empresa de Logística, para ver cuándo puede hacer la entrega. 
-  
-  % Una vez elegida la fecha, se le da la opción de pago. De acuerdo al rating del usuario, puede ser contra entrega o también online. Si el usuario decide utilizar la segunda, entonces el sitio le muestra la pantalla de pago del Agente de Cobro correspondiente. Si el pago es satisfactorio, el Agente de Cobro se lo confirma al sitio, y este le solicita al Depósito que lo prepare. Una vez cerrado el pedido, el Depósito le inforuo”. Logística pueda lo busca para entregárselo al cliente. 
-  
-  % Si el usuario lo recibe satisfactoriamente, entonces Logística lo informa a Depósito, quién actualiza otra vez el estado del pedido en el sitio a “Entregado”. 
 
 %-- Escenario 1
-\subsubsection{Registro online}
+\subsubsection{A: Registro online}
 
 \textbf{\emph{Alice}} no es cliente habitual de la cadena mesporciento, ya que
 le queda lejos de su casa como para ir caminando. Tras enterarse de la nueva
@@ -27,7 +19,7 @@ correctos, y luego le envía un mail de confirmación con un vínculo en el que
 entonces reingresa al sitio, utilizando ahora su nuevo usuario.
 
 %-- Escenario 2
-\subsubsection{Registro presencial con sistema de reputación}
+\subsubsection{B: Registro presencial con sistema de reputación}
 
 \textbf{\emph{Bob}} es cliente habitual de la cadena mesporciento, y aprovecha
 una de sus rutinarias compras para registrar su usuario en su sitio web. Para
@@ -57,7 +49,7 @@ comprar>>, en el que se le informa que ya se encuentra habilitado su usuario
 ``\texttt{marley\_b420}''
 
 %-- Escenario 3
-\subsubsection{Pago online}
+\subsubsection{C: Pago online}
 
 \textbf{\emph{Charlie}} se conecta a la web de mesporciento desde su tablet, con
 su usuario ``\texttt{je\_suis\_moi}'', dispuesto a iniciar su compra de
@@ -85,7 +77,7 @@ por confiar en nosotros. En unos instantes, será redirigido a la página
 principal.''}.
 
 %-- Escenario 4
-\subsubsection{Pago contrareembolso}
+\subsubsection{D: Pago contrareembolso}
 
 \textbf{\emph{Dave}} tiene un problema de adicción al casino. Normalmente, con
 la ayuda de sus amigos y familiares, lo controla sin mayores inconvenientes.
@@ -120,7 +112,7 @@ efectivo, y les deja una modesta propina a los muchachos para que carguen las
 bolsas hasta la cocina de su casa.
 
 %-- Escenario 5
-\subsubsection{Entrega correcta}
+\subsubsection{E: Entrega correcta}
 
 El Martes 13 de Abril \textbf{\emph{Erin}} realizó un pedido de torta de
 cumpleaños, cotillón y un regalo grandioso para ser entregado el Martes
@@ -144,7 +136,7 @@ costumbre familiar, tras lo cual los empleados regresan a su camión,
 apesumbrados.
 
 %-- Escenario 6
-\subsubsection{Ausente durante entrega}
+\subsubsection{F: Ausente durante entrega}
 
 \textbf{\emph{Frank}} es una persona muy olvidadiza. Tanto es así, que durante
 la mañana de hoy, fue hasta el banco a cobrar un cheque, para terminar dándose
@@ -177,43 +169,48 @@ además, de que su usuario ``\texttt{f\_estein}'' había perdido la posibilidad 
 realizar compras contrareembolso, hasta pagar una multa de \$100, lo cual
 ciertamente lo puso de muy mal humor.
 
-\fixme[Habría que agregar algunos casos de usos más específicos, de situaciones
-que no hayan sido descriptas en los que ya agregué...]
+\subsubsection{G: Cancelación de pedido}
 
+\textbf{\emph{Gabriel}} había hecho un pedido el lunes a la mañana. A la tarde
+descubre mejores precios en los chinos de la vuelta, y decide cancelar la compra
+para hacerla en ese lugar que le resulta más económico (haciendo las cuentas,
+llega a la conclusión de que con la diferencia podía comprar un videojuego para
+sus hijos). Entonces, vuelve rápido de los chinos a su casa, y entusiasmado
+chequea que aún pueda hacer la cancelación. Para ello ingresa al sitio
+\texttt{www.mesporciento.com} con su cuenta ``\texttt{gabi\_25x8}'' poniendo sus
+datos, seleccionando el pedido vigente. Selecciona la opción de modificación de
+pedido y posteriormente, al comprobar que no está cerrado, lo cancela.
 
+El sistema le confirma la cancelación. Finalmente \textbf{\emph{Gabriel}} vuelve
+contento a los chinos a hacer la compra y con lo que le sobra, compra el
+videojuego para sus hijos (¡aunque como padre responsable, primero lo juega el
+para enseñarle a ellos!).
 
+\subsubsection{H: Modificación de pedido}
 
+En la casa de \textbf{\emph{Helena}} van a festejar la navidad. Unas horas
+después de que había hecho un pedido para preparar la cena, surgió que además de
+la familia, fueron invitados su amiga \textbf{\emph{Hermenegilda}} con sus hijos
+para no pasar la navidad solos debido a que el marido de
+\textbf{\emph{Hermenegilda}} y sus parientes aún no regresaron del exterior por
+asuntos laborales. Por este motivo, \textbf{\emph{Helena}} decide modificar el
+pedido que tenía hecho incrementando la cantidad de productos comprados como por
+ejemplo las gaseosas. Para eso entra al sitio \texttt{www.mesporciento.com}
+ingresando sus datos, chequea que aún no haya sido cerrado dicho pedido, y al
+comprobarlo selecciona la opción de modificarlo. El sistema le confirma la
+modificación.
 
+\subsubsection{Administración inteligente de productos de depósitos}
 
-% Cancelación de pedido
-%Juan había hecho un pedido el lunes a la mañana. A la tarde descubrió mejores precios en los chinos de la vuelta, y 
-%decide cancelar la compra para hacerla en ese lugar que le resulta más económico (haciendo las cuentas, le dio que 
-%con la diferencia, podía comprar un videojuego para sus hijos). Para eso, vuelve rápido de los chinos a su casa y 
-%entusiasmado chequea que aún pueda hacer la cancelación. Para ello ingresa al sitio www.mesporciento.com con su cuenta 
-%poniendo sus datos, selecciona el pedido encargado, y al comprobar que no está cerrado,  lo cancela. 
-%El sistema le confirma la cancelación. Finalmente Juan vuelve contento a los chinos a hacer la compra y con lo que le 
-%sobra, compra el videojuego para sus hijos (aunque como padre responsable, primero lo juega el para enseñarle a ellos!).  
+\fixme[El administrador ingresa al sistema, ve estadísticas, 
+modifica productos vigentes (abm)]
 
-% Modificación de pedido
-%En la casa de Brenda van a festejar la navidad. Unas horas después de que había hecho un pedido para preparar la cena, 
-%surgió que además de la familia, fueron invitados su amiga Carla con sus hijos para no pasar la navidad solos debido a que 
-%el marido de Carla y sus parientes aún no regresaron del exterior por asuntos laborales. Por este motivo, Brenda decide 
-%modificar el pedido que tenía hecho incrementando la cantidad de productos comprados como por ejemplo las gaseosas. Para 
-%eso entra al sitio www.mesporciento.com ingresando sus datos, chequea que aún no haya sido cerrado dicho pedido, y al 
-%comprobarlo selecciona la opción de modificarlo. El sistema le confirma la modificación.               
-%¿COMO PAGA LA DIFERENCIA? CREO QUE PONIENDO NUEVAMENTE LOS DATOS DE LA TARJETA, PERO TENGO DUDAS.
-%¿HACER ESCENSARIO DONDE QUITA PARTE DEL PEDIDO? EN ESE CASO ¿RECUPERA DIFERENCIA ECONÓMICA?
-%LO HICE POR SEPARADO PERO EN REALIDAD ¿MODIFICAR Y CANCELAR PEDIDO ES UNO SOLO?
+\subsection{Alarma y reposición por bajo stock en depósitos}
 
-% ¿UN ESCENARIO CON LO DE ESTADISTICAS NO, NO?
+\fixme[Se agota el stock, salta alarma, sistema avisa a dpto de stock, 
+dpto de stock hace pedidos, avisa a logística, y se repone stock]
 
-% ¿CORRESPONDE UN ESCENARIO DE REPONER STOCK, CIERTO?  ¿DE PREPARAR Y CERRAR PEDIDO TAMBIEN, NO?
+\subsection{Preparar y cerrar pedido}
 
-% ¿COMO ERA LO DEL RAITING?
-
-%¿QUE OTROS ESCENARIOS SE PUEDEN PONER? YO ESTO DESPUES LO SIGO PENSANDO
-
-
-
-% COMENTARIO A PARTE: No modelamos que una persona pueda consultar (lo hicimos de modo que solo los clientes puedan) ¿No importa?
-
+\fixme[El sistema avisa a depósito que llegó un pedido,
+depósito lo prepara, depósito avisa a sistema que cerró pedido]
