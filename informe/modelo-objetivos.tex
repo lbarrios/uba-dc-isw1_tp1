@@ -98,11 +98,33 @@ deberá permitir la contraentrega.
 \paragraph{1.1.1.1.4.1 - Lograr[Evaluar si permitir contraentrega]}
 
 Para evaluar si el cliente puede realizar un pedido por contrareembolso,
-proponemos dos opciones. La primera de ellas, es un límite de entregas fallidas,
-contenido dentro de la programación del sistema, e instanciado en 1 en nuestros
-ejemplos, es decir, se limita la posibilidad de que el cliente .
+proponemos dos opciones. 
 
-\fixme[RETOMAR ESTA EXPLICACIÓN]
+La primera de ellas es un límite de entregas fallidas (1.1.1.1.4.1.1), contenido
+dentro de la programación del sistema, e instanciado en 1 en nuestros ejemplos,
+es decir, se limita la posibilidad de que el cliente no esté presente en la
+última entrega. Llegado tal caso, se le bloqueará la modalidad contraentrega
+(1.1.1.1.4.1.1.1) y se ofrecerá el pago de una multa (1.1.1.1.4.1.1.2) para
+poder desbloquearla (1.1.1.1.4.1.1.3). El valor de la multa, además, no es fijo,
+sino que dependerá directamente del costo del envío al domicilio de ese cliente
+en particular (1.1.1.1.4.1.1.2.1.1), y el costo de la mercadería que no pudo ser
+reingresada a stock (1.1.1.1.4.1.1.2.1.2). Se le ofrecerán dos modalidades de
+pago, pagar en efectivo al momento de recibir el envío de un pedido distinto
+(1.1.1.1.4.1.1.2.2.1) o pagar online (1.1.1.1.4.1.1.2.2.2).
+
+La segunda opción es un límite de pérdida de redituabilidad (1.1.1.1.4.1.2).
+Para ello, el Administrador deberá definir previamente un umbral de pérdida de
+redituabilidad (1.1.1.1.4.1.2.1), el cual el sistema deberá segurarse de que sea
+respetado en todo momento (1.1.1.1.4.1.2.2). En caso de que el cliente produzca
+costos de tal forma que la redituabilidad se encuentre por bajo del umbral, la
+contraentrega deberá bloquearse (1.1.1.1.4.1.2.2.3). Para ello, es necesario
+contabilizar las ganancias (1.1.1.1.4.1.2.2.1) y costos (1.1.1.1.4.1.2.2.2)
+generados por el cliente. La redituabilidad, entonces, es una relación
+ganancia/costo, la cual no deberá bajar más allá del umbral definido
+previamente.
+
+Ambas opciones están detalladas más adelante, junto con la asignación de
+puntajes a los objetivos blandos.
 
 \paragraph{1.1.1.1.5 - Lograr[Si la forma de pago es online, cobrar]}
 
