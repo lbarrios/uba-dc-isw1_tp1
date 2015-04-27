@@ -6,17 +6,23 @@
 
 \subsubsection{Listado de objetivos}
 
-El objetivo primario del sistema es revertir la disminución de ventas (1) que se 
+\paragraph{1 - Objetivo primario}
+
+El objetivo primario del sistema es revertir la disminución de ventas (1) que se
 viene produciendo en la cadena de supermercados hace meses. Para ello, se nos
 brinda la información de que las dos causas de las disminuciones son las largas
 colas en el supermercado y el agotamiento del stock (1.3), de donde se
 desprenden los objetivos (1.1) y (1.2).
+
+\paragraph{1.1 - Reducción de colas}
 
 Dentro del contexto de la reducción de colas, se tomó la presunción de que cada
 venta online estaría disminuyendo las colas en la sucursal (1.1.2), dado que de
 este modo ese cliente, que normalmente estaría haciendo cola en el supermercado,
 puede encargar los productos desde la comodidad de su casa. De este modo, se
 toma el objetivo de permitir que el usuario compre de forma online (1.1.1).
+
+\paragraph{1.1.1 - Permitir al usuario la compra online}
 
 Consideramos que para permitir que el cliente compre un pedido de forma online, 
 deben ocurrir dos cosas, lograr que el cliente encargue el pedido (1.1.1.1)
@@ -26,19 +32,59 @@ eligiendo una forma de pago}, y lograr que el pedido sea cerrado y finalizado
 (1.1.1.2), que comienza con la confirmación del pedido por parte del cliente,
 y culmina con la entrega del pedido (o la cancelación/anulación, según el caso).
 
-Para que un cliente encargue un pedido, es necesario que el mismo pueda 
-identificarse en el sistema (1.1.1.1.1), para lo cual es necesario que se 
-encuentre registrado (1.1.1.1.1.1) y que se autentique (1.1.1.1.1.2).
+\paragraph{1.1.1.1 - Lograr[Cliente encarga pedido]}
 
-La forma en que un cliente se registra es uno de los o-refinamientos propuestos.
-Dividimos el registro entre online y presencial. El registro online implica que
-el cliente se conecte al sitio, cargando sus datos personales, y sus datos de pago,
-los cuales son verificados por el sistema al momento de la registración. El registro
-presencial, en cambio, requiere que el cliente se dirija a la sucursal con la
-documentación necesaria para verificar identidad, domicilio y datos de pago, los
-cuales son archivados y verificados por un empleado de la sucursal, y posteriormente
-cargados al sistema. Este refinamiento está explicado posteriormente.
+Para que un cliente encargue un pedido, es necesario que el mismo pueda
+identificarse en el sistema (1.1.1.1.1), que el pedido sea armado (1.1.1.1.2),
+que se pueda acordar una fecha de entrega (1.1.1.1.3), una forma de pago
+(1.1.1.1.4) y que si esta última es online, se le pueda cobrar.
 
+\paragraph{1.1.1.1.1 - Lograr[Cliente identificado]}
+
+Para que el cliente pueda ser identificado por el sistema, es necesario que se
+encuentre registrado (1.1.1.1.1.1), y que se autentique (1.1.1.1.1.2)
+
+  \subparagraph{1.1.1.1.1.1 - Lograr[Cliente registrado]}
+
+  La forma en que un cliente se registra es uno de los o-refinamientos propuestos.
+  Dividimos el registro entre online y presencial. El registro online implica que
+  el cliente se conecte al sitio, cargando sus datos personales, y sus datos de
+  pago, los cuales son verificados por el sistema al momento de la registración.
+  El registro presencial, en cambio, requiere que el cliente se dirija a la
+  sucursal con la documentación necesaria para verificar identidad, domicilio y
+  datos de pago, los cuales son archivados y verificados por un empleado de la
+  sucursal, y posteriormente cargados al sistema. Más pormenores sobre este
+  refinamiento, junto con la justificación del puntaje asignado a los objetivos
+  blandos, están explicados posteriormente.
+
+  \subparagraph{1.1.1.1.1.2 - Lograr[Cliente se autentica de forma segura]}
+
+  La autenticación requiere que el cliente ingrese sus credenciales
+  (1.1.1.1.1.2.1). Por otro lado, también es necesario proveer una interfaz que
+  cuente con los mecanismos de seguridad adecuados (1.1.1.1.1.2.2), por ejemplo
+  conexión HTTPS.
+
+\paragraph{1.1.1.1.2 - Lograr[Armado de pedido]}
+
+Para que el pedido sea armado, consideramos que es necesario que el cliente
+pueda ver el stock disponible para cada producto (1.1.1.1.2.1), y que logre
+seleccionar la mercadería adecuada (1.1.1.1.2.3). Para ello, planteamos el
+objetivo de mostrar recomendaciones personalizadas para cada cliente
+(1.1.1.1.2.2), que varían según los distintos datos relacionados a su usuario,
+como pueden ser, perfil de comprador, generado a través del historial de
+compras, compras de otros clientes, relacionados según escala socioeconómica,
+edad, domicilio, etc.
+
+\paragraph{1.1.1.1.3 - Lograr[Acordar fecha de entrega]}
+
+En el transcurso del armado del pedido, es necesario que el cliente acuerde una
+fecha de entrega. Para ello, es necesario que el sistema le ofrezca un rango de
+fechas disponibles (1.1.1.1.3.2), las cuales serán calculadas e informadas por
+logística (1.1.1.1.3.1), y obtenidas en tiempo real, de algun modo, por ejemplo
+a través de algún tipo de interfaz entre nuestro sistema y el sistema de
+logística. En caso de no haberla, será necesario contar con una forma de
+calcularla. Luego de mostrarles las fechas, el cliente eligirá (1.1.1.1.3.3) la
+que más le convenga.
 
 
 %--
