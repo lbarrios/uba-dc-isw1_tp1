@@ -32,6 +32,7 @@ eligiendo una forma de pago}, y lograr que el pedido sea cerrado y finalizado
 (1.1.1.2), que comienza con la confirmación del pedido por parte del cliente, y
 culmina con la entrega del pedido (o la cancelación/anulación, según el caso).
 
+\clearpage
 \paragraph{1.1.1.1 - Lograr[Cliente encarga pedido]}
 
 Para que un cliente encargue un pedido, es necesario que el mismo pueda
@@ -132,6 +133,7 @@ Si el cliente elige el pago online, además, hay que cobrarle. Para ello, se
 cuenta con la participación del cliente, el cual deberá validarse a través del
 agente de cobro, para que el importe le sea deducido de su cuenta bancaria.
 
+\clearpage
 \paragraph{1.1.1.2 - Lograr[El pedido es finalizado y cerrado]}
 
 Una vez que un pedido está encargado, es necesario que el mismo sea cerrado.
@@ -163,6 +165,27 @@ productos (ya que algunos pueden haberse roto o perdido su calidad en el
 transcurso del envío), y reingresará a stock los que considera que se encuentran
 adecuados. Además, se le informará al cliente que su pedido no fue recibido
 mediante un email, y se le ofrecerá rehacerlo (1.1.1.2.1.4.2.4).
+
+\clearpage
+\paragraph{1.2 - Mantener[Stock disponible]}
+
+Para mantener el stock disponible, se deberá mantener el stock disponible tanto en las sucursales (1.2.1) como en los depósitos (1.2.2)
+
+\paragraph{1.2.1 - Mantener[Stock disponible en sucursales]}
+
+Para mantener el stock disponible en las sucursales es necesario lograr realizar un conteo periódico del stock en las sucursales (1.2.1.1), y encargar una reposición por medio del sistema en cuanto el stock sea bajo (1.2.1.2). Por otro lado, será necesario lograr que el depósito sea informado en cuanto haya un pedido nuevo (1.2.1.3). Respecto a esto, la idea es que el depósito mantenga un sistema interno propio que cuente con acceso a la misma base de datos que el sistema web. Tamibén es necesario armar el pedido, y entregarlo a logística (1.2.1.4), de esto se encargaría el depósito. Finalmente, logística debe entregar la reposición de stock a la sucursal (1.2.1.5).
+
+\paragraph{1.2.2 - Mantener[Stock disponible en depósitos]}
+
+Para poder mantener el stock en el depósito, es necesario contar con un límite mínimo de productos, de forma tal de asegurarse de que cada producto se encuentre siempre por encima de este límite (1.2.2.2). Como cada producto es distinto del otro, y tienen distintos ritmos de ventas, este límite no puede ser igual para todos los productos, ni puede estar contenido dentro del código del programa. Para determinar este límite, entonces, será necesario contar con una forma de modificar los productos y sus límites, según las estadísticas de ventas de cada uno (1.2.2.1).
+
+\paragraph{1.2.2.1 - Lograr[Modificar productos y sus límites según estadísticas]}
+
+Por un lado se ofrece la capacidad típica de agregar nuevos productos, modificar los existentes, o dar de baja otros (ABM, 1.2.2.1.1). Utilizando esta interfaz, el administrador deberá modificar los productos, estipulando el límite inferior de stock para cada uno de ellos (1.2.2.1.3). Para ayudarlo, el sistema le ofrece estadísticas elaboradas sobre el registro de cada transacción de los clientes. Se puede visualizar la información de manera interactiva y se pueden aplicar herramientas avanzadas de \textit{machine learning} sobre los datos (1.2.2.1.2).
+
+\paragraph{1.2.2.2 - Mantener [Stock de cada producto por encima de límite estipulado por empresa]}
+
+El sistema monitorea constantemente el stock de cada producto, y cuando uno de estos desciende por debajo del límite estipulado, se inicia un proceso de reabastecimiento. Como el producto no está en suficiente cantidad en nuestros depósitos, es necesario recurrir al Departamento de Stock (1.2.2.2.1) que se encarga de conseguir el producto a través de los distintos proveedores, los cuales serán encomendados para su entrega a la logística (1.2.2.2.2). Luego se inicia un proceso logístico que culmina con el producto en el depósito (1.2.2.2.3), y el nuevo stock ingresado al sistema (1.2.2.2.4).
 
 %--
 %-- Modelo de objetivos - Diagramas
