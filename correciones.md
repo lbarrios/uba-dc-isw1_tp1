@@ -8,7 +8,7 @@
 
 # TODO sobre Contexto
 8. Sobre el fenomeno 8.E, el tutor marcó: "El sistema electrónico generalmente no provee la posibilidad de rehacer el pedido al cliente. El encargado de esto es el Sistema."
-9. Los eventos 11.A y 11.B no aparecen en el diagrama de contexto. 
+10. La sucursal podria ahorrarse todo el trabajo de validar los datos del cliente en el registro presencial si hace la carga online del usuario, y que el sistema haga la validacion como si fuera un caso de registro online normal.
 
 # preguntas a tutores
 1.  Hace falta refinar "mostrar recomendaciones(1.1.1.1.2.2)" como evaluar historial, 
@@ -16,3 +16,4 @@
 
 # LISTO
 7. Revisar que los eventos sean interacciones entre dos agentes, y no eventos internos del sistema. Como "Evalua ingreso por red social", "Contabiliza ingresos por compras", "Añade no-recepcion al perfil", "Cliente se traslada a sucursal"
+9. Los eventos 11.A y 11.B no aparecen en el diagrama de contexto. 

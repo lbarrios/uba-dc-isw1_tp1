@@ -41,10 +41,11 @@
       \item El Cliente presenta la documentación en la Sucursal
       \item El Cliente presenta la factura asociada al domicilio en la Sucursal
       \item El Cliente presenta datos de tarjeta en la Sucursal
-      \item La Sucursal presenta datos de tarjeta del cliente al Agente de Cobro % Revisar que este en el diagrama
-      \item El Agente de Cobro verifica la tarjeta de crédito del Cliente
-      \item La Sucursal verifica datos personales y de domicilio del Cliente
+      \item La Sucursal presenta datos de tarjeta del cliente al Agente de Cobro
+      \item El Agente de Cobro verifica la tarjeta de crédito del Cliente % no es interaccion
+      % \item La Sucursal verifica datos personales y de domicilio del Cliente % no es interaccion
       \item La Sucursal carga datos del cliente en el Sistema
+      \fixme[Pienso que capaz la Sucursal haga el registro online del cliente con los datos que este le provee, y el sistema haga toda la validaci'on. Y no hacer todo dos veces.]
   \end{enumerate}
   
  \item Registro online cliente
@@ -67,7 +68,7 @@
  
  \item Acuerdo de fecha
   \begin{enumerate}
-    % \item Logística le calcula el costo de envío al domicilio al Sistema % no es una interaccion entre los agentes
+    \item Logística indica el costo de envío al domicilio al Sistema
     \item Si el cliente no recibi\'o alg\'un pedido: 
       \begin{enumerate}
       \item El Sistema bloquea contraentrega al Cliente
@@ -110,7 +111,7 @@
   \begin{enumerate}
     \item El Cliente no recibe pedido a Logística
     \item El Sistema reintegra el dinero al Cliente si este no lo recibe. \fixme[SE LO REINTEGRA DIRECTAMENTE?]
-    \item El Sistema añade una no-recepción al historial de recepciones del Cliente
+    % \item El Sistema añade una no-recepción al historial de recepciones del Cliente % operacio interna del sistema
     \item Logística devuelve el stock al Depósito
     \item El Sistema de Correo electrónico ofrece rehacer el pedido Cliente
   \end{enumerate}
@@ -134,8 +135,8 @@
 
  \item Cierre de sesi\'on
   \begin{enumerate}
-    \item Cliente cierra sesión en el Sistema % agregar el evento al Diagrama
-    \item Administrador	cierra sesión en el Sistema % agregar el evento al Diagrama
+    \item Cliente cierra sesión en el Sistema 
+    \item Administrador	cierra sesión en el Sistema 
   \end{enumerate}
 \end{enumerate}
 \clearpage
