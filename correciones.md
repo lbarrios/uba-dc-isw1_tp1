@@ -7,10 +7,12 @@
 6. mandar mail de verificacion de compra
 
 # TODO sobre Contexto
-7. Revisar que los eventos sean interacciones entre dos agentes, y no eventos internos del sistema. Como "Evalua ingreso por red social", "Contabiliza ingresos por compras", "Añade no-recepcion al perfil", "Cliente se traslada a sucursal"
 8. Sobre el fenomeno 8.E, el tutor marcó: "El sistema electrónico generalmente no provee la posibilidad de rehacer el pedido al cliente. El encargado de esto es el Sistema."
 9. Los eventos 11.A y 11.B no aparecen en el diagrama de contexto. 
 
 # preguntas a tutores
 1.  Hace falta refinar "mostrar recomendaciones(1.1.1.1.2.2)" como evaluar historial, 
     evaluar perfil del cliente, etc.. , o se puede explicar nomas en el texto?
+
+# LISTO
+7. Revisar que los eventos sean interacciones entre dos agentes, y no eventos internos del sistema. Como "Evalua ingreso por red social", "Contabiliza ingresos por compras", "Añade no-recepcion al perfil", "Cliente se traslada a sucursal"

@@ -37,11 +37,11 @@
 
  \item Registro presencial cliente
   \begin{enumerate}
-      \item El Cliente se traslada a la Sucursal
+      % \item El Cliente se traslada a la Sucursal % No es una interaccion, sino algo q hace el cliente solo. 
       \item El Cliente presenta la documentación en la Sucursal
       \item El Cliente presenta la factura asociada al domicilio en la Sucursal
       \item El Cliente presenta datos de tarjeta en la Sucursal
-      \item La Sucursal presenta datos de tarjeta del cliente al Agente de Cobro
+      \item La Sucursal presenta datos de tarjeta del cliente al Agente de Cobro % Revisar que este en el diagrama
       \item El Agente de Cobro verifica la tarjeta de crédito del Cliente
       \item La Sucursal verifica datos personales y de domicilio del Cliente
       \item La Sucursal carga datos del cliente en el Sistema
@@ -52,8 +52,8 @@
     \item El Cliente presenta datos de identificación personal y de domicilio al Sistema
     \item El Cliente presenta datos de pago al Sistema
     \item El Sistema valida domicilio con el Correo Argentino
-    \item La Financiera evalúa estado financiero del Cliente
-    \item El Agente de Cobro valida datos de pago del Cliente
+    % \item La Financiera evalúa estado financiero del Cliente % no es una interaccion entre los agentes
+    % \item El Agente de Cobro valida datos de pago del Cliente % no es una interaccion entre los agentes
     \item El Sistema añade al Cliente
   \end{enumerate}
   
@@ -67,14 +67,14 @@
  
  \item Acuerdo de fecha
   \begin{enumerate}
-    \item Logística le calcula el costo de envío al domicilio al Sistema
+    % \item Logística le calcula el costo de envío al domicilio al Sistema % no es una interaccion entre los agentes
     \item Si el cliente no recibi\'o alg\'un pedido: 
       \begin{enumerate}
       \item El Sistema bloquea contraentrega al Cliente
       \item El Sistema ofrece pago de multa para salvarlo
       \end{enumerate}
-    \item El Sistema contabiliza ingresos producidos por compras del Cliente
-    \item El Sistema evalúa ingreso generado por influencia social del Cliente
+    % \item El Sistema contabiliza ingresos producidos por compras del Cliente % es una operacion interna del sistema
+    % \item El Sistema evalúa ingreso generado por influencia social del Cliente % es una operacion interna del sistema
     \item El Sistema informa métodos de pago disponibles al Cliente
     \item EL Cliente elige forma de pago en el Sistema
     \item Si la forma de pago es online: 
@@ -103,13 +103,13 @@
       \item Cliente paga el pedido a Logística
     \end{enumerate}
     \item Logística entrega el pedido al Cliente
-    \item El Sistema actualiza positivamente el perfil del Cliente
+    % \item El Sistema actualiza positivamente el perfil del Cliente % operacion interna del sistema
   \end{enumerate}
 
  \item Entrega fallida
   \begin{enumerate}
     \item El Cliente no recibe pedido a Logística
-    \item El Sistema reintegra el dinero al Cliente si este no lo recibe
+    \item El Sistema reintegra el dinero al Cliente si este no lo recibe. \fixme[SE LO REINTEGRA DIRECTAMENTE?]
     \item El Sistema añade una no-recepción al historial de recepciones del Cliente
     \item Logística devuelve el stock al Depósito
     \item El Sistema de Correo electrónico ofrece rehacer el pedido Cliente
@@ -134,8 +134,8 @@
 
  \item Cierre de sesi\'on
   \begin{enumerate}
-    \item Cliente cierra sesión en el Sistema
-    \item Administrador	cierra sesión en el Sistema
+    \item Cliente cierra sesión en el Sistema % agregar el evento al Diagrama
+    \item Administrador	cierra sesión en el Sistema % agregar el evento al Diagrama
   \end{enumerate}
 \end{enumerate}
 \clearpage
