@@ -3,3 +3,9 @@
 *.sublime-project
 *.sublime-workspace
 
+# Latex Auxiliar Files #
+########################
+*.aux
+*.backup
+*.toc
+*.log
