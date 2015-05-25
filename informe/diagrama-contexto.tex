@@ -37,15 +37,14 @@
 
  \item Registro presencial cliente
   \begin{enumerate}
-      % \item El Cliente se traslada a la Sucursal % No es una interaccion, sino algo q hace el cliente solo. 
-      \item El Cliente presenta la documentación en la Sucursal
-      \item El Cliente presenta la factura asociada al domicilio en la Sucursal
-      \item El Cliente presenta datos de tarjeta en la Sucursal
-      \item La Sucursal presenta datos de tarjeta del cliente al Agente de Cobro
-      \item El Agente de Cobro verifica la tarjeta de crédito del Cliente % no es interaccion
-      % \item La Sucursal verifica datos personales y de domicilio del Cliente % no es interaccion
-      \item La Sucursal carga datos del cliente en el Sistema
-      \fixme[Pienso que capaz la Sucursal haga el registro online del cliente con los datos que este le provee, y el sistema haga toda la validaci'on. Y no hacer todo dos veces.]
+    % \item El Cliente se traslada a la Sucursal % No es una interaccion, sino algo q hace el cliente solo. 
+    \item El Cliente presenta la documentación en la Sucursal
+    \item El Cliente presenta la factura asociada al domicilio en la Sucursal
+    \item El Cliente presenta datos de tarjeta en la Sucursal
+    \item La Sucursal presenta datos de tarjeta del cliente al Agente de Cobro
+    \item El Agente de Cobro verifica la tarjeta de crédito del Cliente % no es interaccion
+    % \item La Sucursal verifica datos personales y de domicilio del Cliente % no es interaccion
+    \item La Sucursal carga datos del cliente en el Sistema
   \end{enumerate}
   
  \item Registro online cliente
@@ -110,10 +109,18 @@
  \item Entrega fallida
   \begin{enumerate}
     \item El Cliente no recibe pedido a Logística
-    \item El Sistema reintegra el dinero al Cliente si este no lo recibe. \fixme[SE LO REINTEGRA DIRECTAMENTE?]
+    \item Si el pedido fue pagado:
+    \begin{enumerate}
+      \item El Sistema le env\'ia una nota de cr\'edito como reintegro del pedido al Agente de Cobro. 
+      \item Agente de Cobro genera el comprobante de reintegro y se la env\'ia al Sistema.
+      \item El Sistema env\'ia el comprobante al Cliente. 
+    \end{enumerate}
+
     % \item El Sistema añade una no-recepción al historial de recepciones del Cliente % operacio interna del sistema
     \item Logística devuelve el stock al Depósito
-    \item El Sistema de Correo electrónico ofrece rehacer el pedido Cliente
+    % \item El Sistema genera un link al pedido fallado. 
+    \item El Sistema arma un e-mail con el link al pedido fallido y la propuesta para que el cliente lo vuelva a hacer, y se lo env\'ia al Sistema de Correo
+    \item El Sistema de Correo electrónico env\'ia mail al Cliente.
   \end{enumerate}
 
  \item Reposicion stock sucursal
