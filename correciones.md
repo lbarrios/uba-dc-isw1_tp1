@@ -10,6 +10,7 @@
 # preguntas a tutores
 1.  Hace falta refinar "mostrar recomendaciones(1.1.1.1.2.2)" como evaluar historial, 
     evaluar perfil del cliente, etc.. , o se puede explicar nomas en el texto?
+**refinar como definir calculo, y hacer calculo**
 
 # LISTO
 # Contexto
