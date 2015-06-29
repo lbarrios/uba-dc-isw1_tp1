@@ -26,74 +26,79 @@
 %--
 %-- Listado de Fenómenos
 %--
+
 \subsubsection{Listado de Fenómenos}
 \begin{enumerate}
- \item Configuración y uso por parte del Administrador
+  \item Configuración y uso por parte del Administrador
   \begin{enumerate}
-   \item El Administrador ingresa credenciales en el Sistema
-   \item El Administrador define el umbral de redituabilidad en el Sistema
-   \item El Administrador consulta estadísticas en el Sistema
+   \item El Administrador ingresa credenciales en el Sistema \label{itm:f-administrador-credencial-sistema}
+   \item El Administrador define el umbral de redituabilidad en el Sistema \label{itm:f-administrador-umbral-sistema}
+   \item El Administrador consulta estadísticas en el Sistema \label{itm:f-administrador-estadistica-sistema}
   \end{enumerate}
 
- \item Registro presencial cliente
+  \item Registro presencial cliente
   \begin{enumerate}
-    % \item El Cliente se traslada a la Sucursal % No es una interaccion, sino algo q hace el cliente solo. 
-    \item El Cliente presenta la documentación en la Sucursal
-    \item El Cliente presenta la factura asociada al domicilio en la Sucursal
-    \item El Cliente presenta datos de tarjeta en la Sucursal
-    \item La Sucursal presenta datos de tarjeta del cliente al Agente de Cobro
-    \item El Agente de Cobro verifica la tarjeta de crédito del Cliente % no es interaccion
-    % \item La Sucursal verifica datos personales y de domicilio del Cliente % no es interaccion
-    \item La Sucursal carga datos del cliente en el Sistema
+    % \item El Cliente se traslada a la Sucursal % No es una interacción, sino algo q hace el cliente solo. 
+    \item El Cliente presenta la documentación en la Sucursal \label{itm:f-cliente-documentacion-sucursal}
+    \item El Cliente presenta la factura asociada al domicilio en la Sucursal \label{itm:f-cliente-domicilio-sucursal}
+    \item El Cliente presenta datos de tarjeta en la Sucursal \label{itm:f-cliente-tarjeta-sucursal}
+    \item La Sucursal presenta datos de tarjeta del cliente al Agente de Cobro \label{itm:f-sucursal-tarjeta-agentecobro}
+    %\item El Agente de Cobro verifica la tarjeta de crédito del Cliente % no es interacción
+    % \item La Sucursal verifica datos personales y de domicilio del Cliente % no es interacción
+    \item La Sucursal carga datos del cliente en el Sistema \label{itm:f-sucursal-carga-cliente-sistema}
+  \end{enumerate}
+
+  \item Registro online cliente
+  \begin{enumerate}
+    \item El Cliente presenta datos de identificación personal y de domicilio al Sistema \label{itm:f-cliente-datos-personal-sistema}
+    \item El Cliente presenta datos de pago al Sistema \label{itm:f-cliente-datos-pago-sistema}
+    \item El Sistema valida domicilio con el Correo Argentino \label{itm:f-sistema-valida-correoargentino}
+    \item El Sistema evalúa estado financiero del cliente con la Financiera. \label{itm:f-sistema-evalua-financiera}
+    \item El Sistema le indica al Correo Electrónico que envíe mail de confirmación al Cliente. \label{itm:f-sistema-confirmacion-correoelectronico}
+    %\item El Sistema añade al Cliente. 
+    \fixme[poner que sist. pide validacion de datos de pago a agente de cobro, y la vuelta]
+  \end{enumerate}
+
+  \item Armado carrito
+  \begin{enumerate}
+    \item El Cliente ingresa credenciales en el Sistema \label{itm:f-cliente-autentica-sistema}
+    \item El Sistema muestra stock disponible al Cliente \label{itm:f-sistema-muestra-stock-cliente}
+    \item El Sistema muestra recomendaciones al Cliente \label{itm:f-sistema-muestra-recomendaciones-cliente}
+    \item El Cliente selecciona mercadería en el Sistema \label{itm:f-cliente-elige-mercaderia-sistema}
+  \end{enumerate}
+    
+\item Confirmación compra
+  \begin{enumerate}
+  	\item Cliente confirma carrito al sistema \label{itm:f-cliente-confirma-carrito-sistema}
+  	\item Sistema ratifica al cliente stock disponible \label{itm:f-sistema-confirma-stock-cliente}
+    \item Sistema muestra mensaje de error de producto no disponible al cliente \label{itm:f-sistema-error-stock-cliente}
+    \item El sistema obtiene el costo del envío de la API de Logística \label{itm:f-apilogistica-envia-costo-sistema}
+    \item El sistema informa el costo de la compra y el envío al cliente \label{itm:f-sistema-envia-costo-cliente}
+    \item El sistema pregunta próximas fechas libres a la API de logística \label{itm:f-apilogistica-fechas-libres-sistema}
+    \item El sistema presenta las posibles fechas de entrega al cliente \label{itm:f-sistema-fechas-libres-cliente}
+    \item El cliente indica la fecha de entrega deseada al sistema \label{itm:f-cliente-fecha-entrega-sistema}
+    \item El sistema presenta los métodos de pago disponibles al cliente \label{itm:f-sistema-muestra-metodos-pago-cliente}
+    \item El cliente elige el método de pago \label{itm:f-cliente-elige-metodo-pago-sistema}
+    \item El sistema muestra datos de pago asociados al cliente \label{itm:f-sistema-muestra-datos-pago-cliente}
+    \item El cliente indica dato de pago \label{itm:f-cliente-elige-dato-pago-sistema}
+    \item El sistema redirige al cliente a la ventana del Agente de Cobro \label{itm:f-sistema-redirige-cliente}
+    \item El cliente autoriza la operación en la ventana del Agente de Cobro \label{itm:f-cliente-autoriza-agentecobro}
+	\item El agente de cobro envía estado y comprobante al sistema \label{itm:f-agentecobro-comprobante-sistema}
+	\item El sistema pide mail de comprobante de pago al Correo Electrónico \label{itm:f-sistema-envia-comprobante-correoelectronico}
+    \item El sistema informa de error de pago al cliente \label{itm:f-sistema-error-pago-cliente}
+    \item El sistema muestra error de timeout de carrito al cliente \label{itm:f-sistema-error-timeout-cliente}
+    \item El Sistema ofrece pago de multa al cliente \label{itm:f-sistema-ofrece-multa-cliente}
+    \item El cliente paga multa online (mediante agente de cobro) \label{itm:f-cliente-paga-multa-agentecobro}
+    \item El cliente paga multa en efectivo a logística \label{itm:f-cliente-paga-multa-logistica}
   \end{enumerate}
   
- \item Registro online cliente
-  \begin{enumerate}
-    \item El Cliente presenta datos de identificación personal y de domicilio al Sistema
-    \item El Cliente presenta datos de pago al Sistema
-    \item El Sistema valida domicilio con el Correo Argentino
-    % \item La Financiera evalúa estado financiero del Cliente % no es una interaccion entre los agentes
-    % \item El Agente de Cobro valida datos de pago del Cliente % no es una interaccion entre los agentes
-    \item El Sistema eval\'ua estado financiero del cliente con la Financiera.
-    \item El Sistema le indica al Correo Electr\'onico que env\'ie mail de confirmaci\'on al Cliente. 
-    \item El Sistema añade al Cliente.
-  \end{enumerate}
-  
- \item Registro pedido
-  \begin{enumerate}
-    \item El Cliente ingresa credenciales en el Sistema
-    \item El Sistema muestra stock disponible al Cliente
-    \item El Sistema muestra recomendaciones al Cliente
-    \item El Cliente selecciona mercadería en el Sistema
-  \end{enumerate}
- 
- \item Acuerdo de fecha
-  \begin{enumerate}
-    \item Logística indica el costo de envío al domicilio al Sistema
-    \item Si el cliente no recibi\'o alg\'un pedido: 
-      \begin{enumerate}
-      \item El Sistema bloquea contraentrega al Cliente
-      \item El Sistema ofrece pago de multa para salvarlo
-      \end{enumerate}
-    % \item El Sistema contabiliza ingresos producidos por compras del Cliente % es una operacion interna del sistema
-    % \item El Sistema evalúa ingreso generado por influencia social del Cliente % es una operacion interna del sistema
-    \item El Sistema informa métodos de pago disponibles al Cliente
-    \item EL Cliente elige forma de pago en el Sistema
-    \item Si la forma de pago es online: 
-    \begin{enumerate}
-      \item El Cliente paga el pedido al Agente de Cobro
-      \item El Agente de cobro confirma el pago al Sistema
-      \item El Sistema confirma la recepción del pago al Cliente
-    \end{enumerate}
-  \end{enumerate}
-  
- \item Modificaci\'on de pedido
+\item Modificación de pedido
   \begin{enumerate}
     \item El Cliente modifica un pedido no cerrado en el Sistema
-    \item El Sistema le dá un crédito al Cliente si este quita mercadería paga
+    \item El Sistema le da un crédito al Cliente si este quita mercadería paga
   \end{enumerate}
 
- \item Preparación y entrega
+\item Preparación y entrega
   \begin{enumerate}
     \item El Cliente confirma el pedido al Sistema
     \item El Sistema avisa al Depósito que prepare el pedido 
@@ -108,24 +113,24 @@
     % \item El Sistema actualiza positivamente el perfil del Cliente % operacion interna del sistema
   \end{enumerate}
 
- \item Entrega fallida
+\item Entrega fallida
   \begin{enumerate}
     \item El Cliente no recibe pedido a Logística
     \item Si el pedido fue pagado:
     \begin{enumerate}
-      \item El Sistema le env\'ia una nota de cr\'edito como reintegro del pedido al Agente de Cobro. 
-      \item Agente de Cobro genera el comprobante de reintegro y se la env\'ia al Sistema.
-      \item El Sistema env\'ia el comprobante al Cliente. 
+      \item El Sistema le envía una nota de crédito como reintegro del pedido al Agente de Cobro. 
+      \item Agente de Cobro genera el comprobante de reintegro y se la envía al Sistema.
+      \item El Sistema envía el comprobante al Cliente. 
     \end{enumerate}
 
     % \item El Sistema añade una no-recepción al historial de recepciones del Cliente % operacio interna del sistema
     \item Logística devuelve el stock al Depósito
     % \item El Sistema genera un link al pedido fallado. 
-    \item El Sistema arma un e-mail con el link al pedido fallido y la propuesta para que el cliente lo vuelva a hacer, y se lo env\'ia al Sistema de Correo
-    \item El Sistema de Correo electrónico env\'ia mail al Cliente.
+    \item El Sistema arma un e-mail con el link al pedido fallido y la propuesta para que el cliente lo vuelva a hacer, y se lo envía al Sistema de Correo
+    \item El Sistema de Correo electrónico envía mail al Cliente.
   \end{enumerate}
 
- \item Reposicion stock sucursal
+\item Reposición stock sucursal
   \begin{enumerate}
     \item La Sucursal avisa cuando falta stock al Sistema
     \item El Sistema avisa falta de stock en sucursal al Depósito
@@ -134,15 +139,15 @@
     \item Logística entrega stock a la Sucursal
   \end{enumerate}
 
- \item Reposicion stock deposito
+\item Reposición stock deposito
   \begin{enumerate}
-    \item El Departamento de stock modifica los límite m\'inimos de stock estipulado para cada producto en el Sistema
+    \item El Departamento de stock modifica los límite mínimos de stock estipulado para cada producto en el Sistema
     \item El Sistema avisa que hay faltante de producto al Departamento de stock
     \item El Departamento de stock encarga reposición de stock del depósito a Logística
     \item Logística repone stock al Depósito
   \end{enumerate}
 
- \item Cierre de sesi\'on
+\item Cierre de sesión
   \begin{enumerate}
     \item Cliente cierra sesión en el Sistema 
     \item Administrador	cierra sesión en el Sistema 
