@@ -12,6 +12,9 @@
 #### Tutor del grupo:
 * Ezequiel Castellano
 
-
+-----------------------
+#### [Enunciado](https://github.com/lbarrios/uba-dc-isw1_tp1/blob/master/enunciado/enunciado.pdf)
+-----------------------
 #### Primera entrega: 26/04/2015, [release v1.0](https://github.com/lbarrios/uba-dc-isw1_tp1/releases/tag/v1.0)
 #### Re-entrega: 06/07/2015, [Repositorio de RTP](https://github.com/lbarrios/uba-dc-isw1_rtp)
+-----------------------
